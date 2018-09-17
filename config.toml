@@ -1,8 +1,9 @@
-baseURL = "rhelements.github.io/"
+baseURL = "/"
 languageCode = "en-us"
 title = "RHElements"
 theme = "kube"
 disableFastRender = true
+canonifyURLs = true
 
 [Params]
   author = "RHElements" # add your company name
@@ -31,24 +32,24 @@ disableFastRender = true
 [[menu.main]]
     name = "Getting Started"
     weight = 100
-    url = "/getting-started/"
+    url = "/:getting-started/"
 [[menu.main]]
     name = "Develop"
     weight = 200
-    url = "/develop/"
+    url = "/:develop/"
 [[menu.main]]
     name = "Theme"
     weight = 300
-    url = "/theme/"
+    url = "/:theme/"
     
 [[menu.extra]]
     name = "Community"
     weight = 400
-    url = "/site-info/community"
+    url = "/:site-info/community"
 [[menu.extra]]
     name = "Help"
     weight = 500
-    url = "/site-info/get-help"
+    url = "/:site-info/get-help"
     
     
 [imaging]
