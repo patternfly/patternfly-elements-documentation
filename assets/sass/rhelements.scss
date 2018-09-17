@@ -13,36 +13,12 @@
   color: #252525;
 }
 
-a:hover,
-a:focus {
-  color: #06c;
-}
-
-#action-buttons {
+a {
+  text-underline-position: under; // idk how I feel about this
   
-  a, button, .button {
-    margin: 0 .5rem;
-    
-    &.primary {
-      background-color: lighten(#0477a4, 8%);
-    }
-    
-    &.primary:hover,
-    &.primary:focus {
-      background-color: darken(#0477a4, 5%);
-    }
-    
-    &.outline {
-      border-color: lighten(#0477a4, 8%);
-      color: lighten(#0477a4, 8%);
-    }
-    
-    &.outline:hover,
-    &.outline:focus {
-      background-color: $rh-global--color--gray-gainsboro;
-      border-color: darken(#0477a4, 5%);
-      color: darken(#0477a4, 5%);
-    }
+  &:hover,
+  &:focus {
+    color: #06c;
   }
 }
 
@@ -73,6 +49,34 @@ pre {
 code {
   color: #313439;
   background: #e9f3fb;
+}
+
+#action-buttons {
+  
+  a, button, .button {
+    margin: 0 .5rem;
+    
+    &.primary {
+      background-color: lighten(#0477a4, 5%);
+    }
+    
+    &.primary:hover,
+    &.primary:focus {
+      background-color: darken(#0477a4, 5%);
+    }
+    
+    &.outline {
+      border-color: lighten(#0477a4, 5%);
+      color: lighten(#0477a4, 5%);
+    }
+    
+    &.outline:hover,
+    &.outline:focus {
+      background-color: $rh-global--color--gray-gainsboro;
+      border-color: darken(#0477a4, 5%);
+      color: darken(#0477a4, 5%);
+    }
+  }
 }
 
 
