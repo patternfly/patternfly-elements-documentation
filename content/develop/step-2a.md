@@ -1,5 +1,5 @@
 +++
-title = "Create a RHElement: Step 2a"
+title = "Develop a Structure"
 description = ""
 date = 2018-08-31T14:02:31-04:00
 weight = 5
@@ -9,8 +9,6 @@ toc = true
 menu = "develop"
 +++
 
-
-## Develop a Structure
 
 Run the dev command found in the package.json file at the root of your element to start watching for changes to any files located in the `/src` directory. This will build rh-cool-element.js and rh-cool-element.umd.js whenever you save changes.
 

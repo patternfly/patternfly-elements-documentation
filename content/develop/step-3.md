@@ -1,5 +1,5 @@
 +++
-title = "Create a RHElement: Step 3"
+title = "Write tests"
 description = ""
 date = 2018-08-31T14:02:31-04:00
 weight = 9
@@ -10,7 +10,6 @@ menu = "develop"
 +++
 
 
-## Write tests
 
 Let's write a test for the `rh-cool-element`. 
 

@@ -47,11 +47,17 @@ a:focus {
 }
 
 p {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
   font-size: 1.3rem;
   font-weight: 400;
   letter-spacing: .1px;
   line-height: 1.58;
+}
+
+h1, h2, h3, h4, h5, h6, pre {
+  ~ p {
+    margin-top: 1.5rem;
+  }
 }
 
 table {
@@ -59,6 +65,7 @@ table {
 }
 
 pre {
+  margin-top: 1.5rem;
   border: 1px solid rgba(17,17,19,.1);
   background-color: #f8f8f8;
 }
@@ -389,6 +396,7 @@ main {
         text-decoration: none;
         color: #114269;
         font-size: 1.3rem;
+        font-weight: 900;
       }
     }
     
@@ -431,18 +439,26 @@ main {
       }
       
       ul, ol {
-        margin-bottom: 2rem;
+        margin: 1rem 2rem;
         font-size: 1.2rem;
         
         li {
-          margin-bottom: .5rem;
+          margin-bottom: 0;
           
           ul, ol {
             margin-bottom: 0;
+            li {
+              margin-top: .25rem;
+            }
+            li~li {
+              margin-top: .5rem;
+            }
           }
         }
+        li~li {
+          margin-top: 1.1rem;
+        }
       }
-      
       img {
         padding: .5rem 0 1rem 0;
       }
@@ -479,9 +495,17 @@ main {
       
       li {
         margin-bottom: .6rem;
-        background: url(/img/logo/svg/rhelements-icon-black.svg) 0 47% no-repeat;
         padding-left: 2.5rem;
-        
+        position: relative;
+        &:before {
+          position: absolute;
+          content: "";
+          background: url(/img/logo/svg/rhelements-icon-black.svg) 100% 100% no-repeat;
+          left: 6px;
+          width: 28px;
+          height: 26px;
+          background-size: cover;
+        }
         a {
           font-size: 1rem;
         }

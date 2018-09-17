@@ -1,5 +1,5 @@
 +++
-title = "Develop"
+title = "Development Overview"
 description = "Build and create reusable web components."
 date = 2018-08-31T14:02:31-04:00
 weight = 20
@@ -8,81 +8,38 @@ bref = ""
 toc = true
 +++
 
-<!-- # Guidelines -->
+
+## The RHElements pattern library
+
+Before getting started, it's important to note that because this is a library, each of the components within it are designed to work together. For this reason, RHElements should follow some basic guidelines:
 
 ## Guidelines for building a RHElement
 
-1. A RHElement should be easy to understand. If it's challenging for rocket scientists, can it be split up into simpler pieces?
-2. A component can only be 1 of 2 types: content or container. 
-    - If content, then it has typography styles
-    - If container, then it has surface styles and padding, no typography styles!
-3. Context agnostic
-    - A RHElement should “just work” when you drop it onto any page (provided the proper polyfills are there). It should have ALL the styles it needs
+1. A RHElement should be easy to understand. 
+    - If it is complicated, can it be split up into simpler pieces?
+2. A RHElement component can only be one of these types: `content` or `container`. 
+    - If it is a `content` component, then it has typography styles.
+    - If it is a `container` component, then it has surface colors and padding, no typography styles!
+    - Read more on this below.
+3. Context aware
+    - `Content` components should be equipped with styles for the `on="dark"` attribute, so that they can be used on both light and dark backgrounds. 
+4. Framework agnostic
+    - A RHElement should “just work” when you drop it onto any page (provided the proper polyfills are there). It should have ALL the styles it needs, such as font-family properties.
 
-## Prerequisites
+------------
 
-Clone the [RHElements/rhelements](https://github.com/RHElements/rhelements) and run the install command from the root of the repository.
+## Container RHElements
 
-```
-npm install
-```
+A container never imposes padding or styles on the children. It is only concerned with their horizontal or vertical alignment and spacing. For example in a card, you might apply margins to the slots, but you would not apply padding or color not to the content inside of slots.
 
-## Generate a RHElement
+**Example: [rh-card](https://github.com/RHElements/rhelements/blob/master/elements/rh-card/src/rh-card.scss)**
 
-Using the [generator-rhelement](https://github.com/RHElements/generator-rhelement), which installed as a dev dependency, the generator will ask you a few questions that will help with the scaffolding. Make sure you are in the root directory of the RHElements repository.
+This component has background color options, and attributes to change the vertical spacing between the slots.
 
-```
-npm run new
-```
+## Content RHElements
 
-## Scaffolding Structure
+A component always touches all four sides of its parent container. For example, if you are creating a teaser component, it should not have padding or margins around the type. It might, however have margins between the headline and author.
 
-The generator will scaffold out a new RHElement that will include a ES6 module version of your element as well as a version compiled to ES5 code. These two files will live at the root of your new element. **DO NOT EDIT THESE TWO FILES**. These two files are the files that will be used when your element is distributed and they'll be overwritten during development and your build.
+**Example: [rh-cta](https://github.com/RHElements/rhelements/blob/master/elements/rh-cta/src/rh-cta.scss)**
 
-Instead, do your development in the `/src` directory of your element. In the `/src` directory you'll find a Javascript file that extends the RHElement class that takes care of setting up a shadow root and ShadyCSS. The HTML file is where you'll add the HTML that will be cloned into the shadow root. And the CSS or SCSS file (depending on if you're using Sass) is where you'll add your styles. During the development and build tasks, a Gulp task will merge these three files together into the root of your element and will update the ES6 and ES5 versions.
-
-## Develop
-
-Run the dev script in the package.json file at the root of the element you just created and Gulp will start watching the files in your `/src` directory and will run a build each time you edit one of those files.
-
-```
-npm run dev
-```
-
-## Preview Your Changes
-
-From the root of the RHElements repository, run the start command which will open a browser to the `/doc` directory.
-
-```
-npm start
-```
-
-From there you can change the URL to the demo page of the element you're working on. For example, if I ran `npm run dev` in the `/elements/rh-card` directory, I'd navigate in the browser to `http://localhost:1234/elements/rh-card/demo`.
-
-## Test
-
-From the directory of the element you're working on, run the test script in the package.json file and Web Component Tester will use Mocha and Chai to execute your tests in the browser.
-
-```
-npm test
-```
-
-## Build
-
-Prepare your element for distribution by running the build script in the package.json file located at the root of the element you're working on. If you've been running `npm run dev`, the dev script runs the build script every time you save a file in the `/src` directory so running the build script might be redundant, but better safe than sorry.
-
-```
-npm run build
-```
-
-The build script will merge the files in the `/src` directory and update the ES6 and ES5 versions of your element in the root of the element. These two files are the files that your applications will either require or import for use.
-
-## Publish
-
-We've been publishing our RHElements to npm under the [RHElements organization](https://www.npmjs.com/org/rhelements).
-
-## Create a Rhelement
-
-Now that we have everything set up, let's create a RHElement together.
-
-[Create a RHElement](/step-1.html)
+This component has typography styles, and attributes to change the priority level of the call-to-action. It also has `on="dark"` styles built in, so that colors will automatically adjust. 

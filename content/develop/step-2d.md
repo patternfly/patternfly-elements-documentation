@@ -1,5 +1,5 @@
 +++
-title = "Create a RHElement: Step 2d"
+title = "Integrate your JavaScript"
 description = ""
 date = 2018-08-31T14:02:31-04:00
 weight = 8
@@ -10,7 +10,6 @@ menu = "develop"
 +++
 
 
-## Integrate your JavaScript
 
 In this step, we will:
 - Add a click listener to the follow button

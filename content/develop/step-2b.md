@@ -1,5 +1,5 @@
 +++
-title = "Create a RHElement: Step 2b"
+title = "Write your HTML"
 description = ""
 date = 2018-08-31T14:02:31-04:00
 weight = 6
@@ -10,7 +10,6 @@ menu = "develop"
 +++
 
 
-## Write your HTML
 
 Now that our element is set up and our dev server is running, let's take advantage of the slot and shadow root to make our element a bit more interesting.
 

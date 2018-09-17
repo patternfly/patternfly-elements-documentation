@@ -1,6 +1,6 @@
 +++
 title = "Getting Started"
-description = "Create your own bulletproof web component."
+description = "Use a RHElement in your web site or web app."
 date = 2018-08-31T14:02:31-04:00
 weight = 20
 draft = false
@@ -8,70 +8,100 @@ bref = ""
 toc = true
 +++
 
-## Prerequisites
 
-Clone the [RHElements/rhelements](https://github.com/RHElements/rhelements) and run the install command from the root of the repository.
+## 1. Install RHElements
 
-```
-npm install
-```
 
-## Generate a RHElement
+Use [NPM](https://www.npmjs.com/) (Node Package Manager) to install the whole RHElements library or a handful of individual RHElements.
 
-Using the [generator-rhelement](https://github.com/RHElements/generator-rhelement), which installed as a dev dependency, the generator will ask you a few questions that will help with the scaffolding. Make sure you are in the root directory of the RHElements repository.
-
-```
-npm run new
+```bash
+npm install --save @rhelements/rh-card
 ```
 
-## Scaffolding Structure
+Or, utilize the Red Hat asset library! When it exists! 
 
-The generator will scaffold out a new RHElement that will include a ES6 module version of your element as well as a version compiled to ES5 code. These two files will live at the root of your new element. **DO NOT EDIT THESE TWO FILES**. These two files are the files that will be used when your element is distributed and they'll be overwritten during development and your build.
 
-Instead, do your development in the `/src` directory of your element. In the `/src` directory you'll find a Javascript file that extends the RHElement class that takes care of setting up a shadow root and ShadyCSS. The HTML file is where you'll add the HTML that will be cloned into the shadow root. And the CSS or SCSS file (depending on if you're using Sass) is where you'll add your styles. During the development and build tasks, a Gulp task will merge these three files together into the root of your element and will update the ES6 and ES5 versions.
 
-## Develop
+## 2. Include RHElements on a page
 
-Run the dev script in the package.json file at the root of the element you just created and Gulp will start watching the files in your `/src` directory and will run a build each time you edit one of those files.
+You have some options:
+
+1. Load JavaScript modules via script tag: `script type="module"`
+	1.  Downloads all of the dependencies on its own
+	2.  [Only supported in modern browsers](https://caniuse.com/#search=module)
+2. Include the RHElement and its dependencies on the page(s) or within the app.
+
+	```html
+	import '@rhelements/rh-card/rh-card.js';
+	import '@rhelements/rh-cta/rh-cta.js';
+	```
+
+3. Use [require.js](https://requirejs.org/) JavaScript file and module loader
+	- Learn more about [Polyfills](/getting-started/polyfills)
+3. Load individual RHElement scripts, but bundle the polyfills with the base `rhelement.js` file
+	1.  All elements are based off of rhelement.js so including the polyfills with this one file would mean you only need to include the rhelement.js file before you include anything else
+4. Bundle all of the scripts together into one
+5. TBD Idea: polyfill.io > webservice (build something similar internal to RH - component service)
+	1.  pipe needed polyfills for website, checks headers, runtime
+	2.  delivers dynamic JS
+	3.  If I want rh-card - it gets the rh-card.js + required other files (serves up js bundle)
+
+
+
+## 3. Use RHElements markup
+
+You can use RHElements with other standard HTML markup in your app or page:
+
+```html
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import '@rhelements/rh-card/rh-card.js';
+import '@rhelements/rh-cta/rh-cta.js';
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">Welcome to React</h1>
+        </header>
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
+        <div className="body">
+          <rh-card>
+            <h2 slot="header">Default card</h2>
+            <p>This is the default rh-card and <a href="#">a link</a>.</p>
+            <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
+            <p>Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
+            <div slot="footer">
+            	<rh-cta priority="secondary"><a href="#">Learn more</a></rh-cta>
+            </div>
+          </rh-card>
+        </div>
+      </div>
+    );
+  }
+}
 
 ```
-npm run dev
+
+
+## 4. Add attributes 
+
+You may choose to add attributes such as `priority` or `color` as needed to adjust usage of palette color, context, or priority.
+
+```html
+  <rh-card color="darkest">
+    <h2 slot="header">Dark card</h2>
+    <p>Lorem ipsum.</p>
+    <rh-cta color="complement" priority="primary" on="dark" slot="footer">
+        <a href="#">Important call-to-action</a>
+    </rh-cta>
+  </rh-card>
 ```
 
-## Preview Your Changes
 
-From the root of the RHElements repository, run the start command which will open a browser to the `/doc` directory.
 
-```
-npm start
-```
-
-From there you can change the URL to the demo page of the element you're working on. For example, if I ran `npm run dev` in the `/elements/rh-card` directory, I'd navigate in the browser to `http://localhost:1234/elements/rh-card/demo`.
-
-## Test
-
-From the directory of the element you're working on, run the test script in the package.json file and Web Component Tester will use Mocha and Chai to execute your tests in the browser.
-
-```
-npm test
-```
-
-## Build
-
-Prepare your element for distribution by running the build script in the package.json file located at the root of the element you're working on. If you've been running `npm run dev`, the dev script runs the build script every time you save a file in the `/src` directory so running the build script might be redundant, but better safe than sorry.
-
-```
-npm run build
-```
-
-The build script will merge the files in the `/src` directory and update the ES6 and ES5 versions of your element in the root of the element. These two files are the files that your applications will either require or import for use.
-
-## Publish
-
-We've been publishing our RHElements to npm under the [RHElements organization](https://www.npmjs.com/org/rhelements).
-
-## Create a Rhelement
-
-Now that we have everything set up, let's create a RHElement together.
-
-[Create a RHElement](/docs/create-a-rhelement/step-1.html)

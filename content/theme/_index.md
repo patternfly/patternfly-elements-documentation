@@ -1,5 +1,5 @@
 +++
-title = "Theme (WIP)"
+title = "Theme"
 description = "Use our beautifully designed theme, or modify it to your needs."
 date = 2018-08-31T14:02:31-04:00
 weight = 20
@@ -9,66 +9,35 @@ toc = true
 +++
 
 
-## Color Variables
+## Theming 101
 
-Looking for values fast? You can find a [list of all the system colors here](https://github.com/RHElements/rhelements/blob/master/elements/rh-sass/variables/_colors.scss)
+Every RHElement is built to automatically utilize the colors defined in the palette, which you control! Generally speaking, the only thing you will need to do is re-define the CSS variables to match your brand and you're done. 
 
-### UI Colors
-
-A user interface uses color to convey:
-
- - Feedback: Error and success states
- - Information: Charts, graphs, and wayfinding elements
- - Hierarchy: Showing structured order through color and typography
-
-We've exposed 3 color variants for this design system to represent your brand:
-
- - Base
- - Complement
- - Accent
-
-These colors are used throughout RHElements, but accent is the color which should stand out the most. For example, if your brand colors are navy, orange, and medium gray, you'll want to set orange as the accent color. You'll see it appear on primary level call-to-action buttons and other elements that need to stand out.
-
-If you are overriding these colors, you can do so my changing the CSS variables, like this:
+Often components will make decisions about how to best utilize those colors, which is "baked in". For example, a standard CTA, or call-to-action component, uses the standard link color in its default state. But, if you set the `priority` attribute value to `primary`, the CTA will make use of the accent color from the palette. 
 
 
-	:root {
-	  --rh-color--ui-base:               #030070;
-	  --rh-color--ui-base--hover:        #010047;
-	  --rh-color--ui-base--text:         #ffffff;    // what color text is most visible on this background color?
-	  --rh-color--ui-base--text--hover:  #eeeeee;
-	}
+	<rh-cta priority="primary">
+		<a href="#">Primary</a>
+	</rh-cta>
 
 
-UI colors are meant to provide basic colors for ubiquitous page elements like links and body text. You may choose to set the value of a link color to something in your brand, but it is not required, and these colors should provide a good user experience. Pick colors that provide a good user experience, e.g. color contrast.
+This is because the accent color should be the brightest and boldest, and the primary call-to-action should be the most attention-grabbing item on the page. 
 
 
-### Surface Colors
+Additionally, each component comes equipped to adjust its colors depending on where it's placed on the page. For example, should you need to put a default CTA (which is blue) on a dark blue card, the CTA will need to adapt. You can do this by informing the component of its context (on a dark background) by giving the `on` attribute the value of `dark`. 
 
-It's also a good idea to choose some neutral colors for general UI backgrounds and borders—usually grays. Surface color encompass any "surface" that are typically part of container-type elements, like cards or bands. These colors should be harmonious with your corporate style guide (if you have one), but they may not necessarily be your company’s primary brand colors. 
+    <rh-card color="dark">
+	    <rh-cta color="base" on="dark">
+	    	<a href="#">Default</a>
+	    </rh-cta>
+	</rh-card>
 
-	:root {
-		--rh-color--surface--base:                      #ccc;
-		--rh-color--surface--base--text:                #000;
-		--rh-color--surface--base--link:                #00538c; 
-		--rh-color--surface--base--link--visited:       #7551a6 !default;
-		--rh-color--surface--base--link--hover:         #00305b !default;
-		--rh-color--surface--base--link--focus:         #00305b !default;
-	}
+Should you need to deviate from this color usage, and set your primary CTA to use the complement color from the palette, you may also pass a value of `complement` into the `color`  attribute, like this:
 
+	<rh-cta priority="primary" color="complement">
+		<a href="#">Primary</a>
+	</rh-cta>
 
-### Feedback Colors
-
-And finally, you’ll have colors for states such as error, warning, and success. Group these colors to see how well they work together and refine as needed.
-
-	:root {
-	    --rh-color--feedback--critical:                 $rh-color--red-600 !default;
-	    --rh-color--feedback--critical--lightest:       $rh-color--red-50 !default;
-	    --rh-color--feedback--critical--darkest:        $rh-color--red-800 !default;
-	}
+Please note that if you are opting to override colors of components, they will not automatically respond to the `on="dark"` attribute any longer.
 
 
-
-## Color overrides per component
-
-TBD
