@@ -1,18 +1,30 @@
 # RHElements Documentation
 
-RHElements documentation uses the Hugo, a static HTML and CSS website generator.
+Welcome to the main repository for our documentation! 
+We're using Hugo, a static HTML and CSS website generator, and Github Pages.
 
-## Install Hugo with homebrew
+## Quick-start
+Install Hugo, build, and watch for files locally.
+
+### Install Hugo with homebrew
 ```
 brew install hugo
 ```
 
-## Build your static assets
+### Build your static assets
 ```
 hugo
 ```
 
-## Watch files locally
+### Watch for files locally
 ```
 hugo server -D
+```
+
+## Scripts
+
+### Deploy!
+Build and pull in any updates before running the deploy script.
+```
+./deploy.sh
 ```
