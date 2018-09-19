@@ -1,11 +1,11 @@
-<!-- 
+<!--
   Show main nav items on smaller screens and instead of combining those in a hamburger menu,
-  combine the TOC 
+  combine the TOC
 -->
 <div class="show-sm" id="top-sm">
   <div id="nav-toggle-box">
     <div id="nav-toggle-brand">
-      <section id="top-brand">
+      <section class="top-brand">
         <a href="/" title="home"><span>RH</span>Elements</a>
       </section>
     </div>
@@ -13,7 +13,7 @@
   </div>
 </div>
 <div class="hide-sm" id="top">
-  <section id="top-brand">
+  <section class="top-brand">
     <a href="/" title="home"><span>RH</span>Elements</a>
   </section>
   <nav id="top-nav-main">
@@ -26,13 +26,13 @@
       {{end}}
     </ul>
   </nav>
-  <nav id="top-nav-extra"> 
+  <nav id="top-nav-extra">
     <ul>
-      {{ range .Site.Menus.extra }} 
+      {{ range .Site.Menus.extra }}
         <li>
           <a href="{{ .URL }}">{{ .Name }}</a>
         </li>
-      {{ end }}  
+      {{ end }}
     </ul>
   </nav>
 </div>
@@ -40,13 +40,13 @@
 <section id="mobile-toc" class="hide">
   <ul>
     {{ $currentPage := . }}
-     
+
     {{ range .Site.Menus.main }}
-      <li> 
+      <li>
         <a href="{{ .URL }}">{{ .Name }}</a>
-        
+
       </li>
     {{end}}
   </ul>
-  
+
 </section>

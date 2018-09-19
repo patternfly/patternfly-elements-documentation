@@ -80,10 +80,10 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 36px;
   height: 88px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
-  #top #top-brand {
+  #top .top-brand {
     margin-right: 52px; }
-    #top #top-brand span,
-    #top #top-brand a {
+    #top .top-brand span,
+    #top .top-brand a {
       background: none;
       text-indent: -9999px;
       width: 70px;
@@ -1058,7 +1058,7 @@ tr.border-none td {
     padding-bottom: 24px; }
     #top ul {
       display: block; }
-    #top #top-brand {
+    #top .top-brand {
       display: none; }
     #top #top-nav-main {
       padding: 0;
