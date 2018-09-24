@@ -26,9 +26,6 @@ a {
   }
 }
 
-// figure out where to put all of this
-
-
 #action-buttons {
   
   a, button, .button {
@@ -54,6 +51,17 @@ a {
       border-color: darken(#0477a4, 5%);
       color: darken(#0477a4, 5%);
     }
+  }
+}
+
+.label {
+  background-color: $rh-global--color--purple-amethyst;
+  border-color: $rh-global--color--purple-amethyst;
+  font-weight: 600;
+  letter-spacing: .2px;
+  
+  &.big {
+    padding: 2px 15px;
   }
 }
 
@@ -421,17 +429,17 @@ main {
     
     code {
       color: #313439;
-      background-color: #e9f3fb;
+      background-color: #f5fce8; //#eaf4fb or #f5fce8
     }
     
     pre {
       margin-top: 1.5rem;
       border: 1px solid #e4e4e7;
       border-radius: 0;
-      background-color: #f4f5f6;
+      background-color: #f6fafd;
       
       code {
-        background-color: #f4f5f6;
+        background-color: #f6fafd;
         color: #5e646e;
         font-size: 16px;
       }
@@ -439,6 +447,7 @@ main {
     
     blockquote, q {
       margin-top: 1.5rem;
+      border-color: rgba(136, 186, 38, 0.5);
     }
     
     p {
