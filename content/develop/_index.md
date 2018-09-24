@@ -26,8 +26,6 @@ Before getting started, it's important to note that because this is a library, e
 4. Framework agnostic
     - A RHElement should “just work” when you drop it onto any page (provided the proper polyfills are there). It should have ALL the styles it needs, such as font-family properties.
 
-------------
-
 ## Container RHElements
 
 A container never imposes padding or styles on the children. It is only concerned with their horizontal or vertical alignment and spacing. For example in a card, you might apply margins to the slots, but you would not apply padding or color not to the content inside of slots.
