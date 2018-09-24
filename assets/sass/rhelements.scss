@@ -18,14 +18,11 @@ a {
   font-size: 1rem;
   letter-spacing: .2px;
   color: #0d5b98;
-  
-  // @supports (text-underline-position: under) {
-  //   text-underline-position: under;
-  // }
+  // text-underline-position: under;   //limited support
   
   &:hover,
   &:focus {
-    color: #06c;
+    color: #1177c5;
   }
 }
 
@@ -132,7 +129,7 @@ header {
         font-size: 1rem;
         
         &:hover {
-          color: #06c;
+          color: #1177c5;
           transition: all .3s;
         }
       }
@@ -432,6 +429,10 @@ main {
         font-weight: 700;
         letter-spacing: .2px;
         line-height: 1.3;
+        
+        &:hover {
+          color: #1177c5;
+        }
       }
     }
     
@@ -440,10 +441,6 @@ main {
       
       li {
         margin-bottom: .4rem;
-        
-        a {
-          color: #0d5b98;
-        }
       }
     }
     
@@ -547,9 +544,14 @@ main {
           width: 21px;
           height: 21px;
         }
+        
         a {
           font-size: 1rem;
           color: #0d5b98;
+          
+          &:hover {
+            color: #1177c5;
+          }
         }
       }
     }
