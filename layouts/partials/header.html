@@ -37,16 +37,61 @@
   </nav>
 </div>
 
-<section id="mobile-toc" class="hide">
-  <ul>
-    {{ $currentPage := . }}
-     
-    {{ range .Site.Menus.main }}
-      <li> 
-        <a href="{{ .URL }}">{{ .Name }}</a>
-        
-      </li>
-    {{end}}
-  </ul>
-  
-</section>
+<!-- Convert to a partial -->
+<nav id="mobile-toc" class="hide">
+  <section class="inner-toc">
+    <span class="label big" style="margin-bottom: 1.5rem;">Version 0.5</span>
+    
+    <h3><a href="/getting-started">Getting Started</a></h3>
+    <ul>
+      {{ range where .Site.RegularPages "Params.menu" "start" }}
+        <li>
+          <a href="{{ .URL }}" title="{{ .Title }}">
+            {{ .Name }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+    <h3><a href="/develop">Develop</a></h3>
+    <ul>
+      {{ range where .Site.RegularPages "Params.menu" "develop" }}
+        <li>
+          <a href="{{ .URL }}" title="{{ .Title }}">
+            {{ .Name }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+    <h3><a href="/theme">Theme</a></h3>
+    <ul>
+      {{ range where .Site.RegularPages "Params.menu" "theme" }}
+        <li>
+          <a href="{{ .URL }}" title="{{ .Title }}">
+            {{ .Name }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+    
+    <h3>Site Info</h3>
+    <ul>
+      {{ range where .Site.RegularPages "Params.menu" "info" }}
+        <li>
+          <a href="{{ .URL }}" title="{{ .Title }}">
+            {{ .Name }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+    
+    <!-- I don't think these are necessary in the main TOC -->
+    <!-- <h3>Contact</h3>
+    <ul>
+      {{ range .Site.Menus.extra }} 
+        <li>
+          <a href="{{ .URL }}">{{ .Name }}</a>
+        </li>
+      {{ end }}  
+    </ul> -->
+  </section>
+</nav>

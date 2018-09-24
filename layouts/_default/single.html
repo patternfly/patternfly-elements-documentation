@@ -5,8 +5,11 @@
 
 <article style="display: flex; flex-direction: row;">
   
+  <!-- Convert to a partial -->
   <nav id="main-toc">
     <section class="inner-toc">
+      <span class="label big" style="margin-bottom: 1.5rem;">Version 0.5</span>
+      
       <h3><a href="/getting-started">Getting Started</a></h3>
       <ul>
         {{ range where .Site.RegularPages "Params.menu" "start" }}
@@ -37,15 +40,27 @@
           </li>
         {{ end }}
       </ul>
-      <!-- Figure out the name for this -->
-      <h3>Contact</h3>
+      
+      <h3>Site Info</h3>
+      <ul>
+        {{ range where .Site.RegularPages "Params.menu" "info" }}
+          <li>
+            <a href="{{ .URL }}" title="{{ .Title }}">
+              {{ .Name }}
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+      
+      <!-- I don't think these are necessary in the main TOC -->
+      <!-- <h3>Contact</h3>
       <ul>
         {{ range .Site.Menus.extra }} 
           <li>
             <a href="{{ .URL }}">{{ .Name }}</a>
           </li>
         {{ end }}  
-      </ul>
+      </ul> -->
     </section>
   </nav>
   
