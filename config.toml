@@ -1,8 +1,7 @@
-baseURL = "/"
+baseURL = "https://rhelements.github.io/"
 languageCode = "en-us"
 title = "RHElements"
 theme = "kube"
-disableFastRender = true
 canonifyURLs = true
 
 [Params]
