@@ -1,12 +1,12 @@
 +++
 title = "Code of conduct"
 description = ""
-date = 2018-08-31T14:02:31-04:00
-weight = 13
+weight = 2
 draft = false
 bref = ""
 toc = true
 menu = "info"
+tags = [ "info" ]
 +++
 
 # Contributor Covenant Code of Conduct

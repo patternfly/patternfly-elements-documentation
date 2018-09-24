@@ -1,12 +1,12 @@
 +++
 title = "RH Layouts"
 description = ""
-date = 2018-08-31T14:02:31-04:00
-weight = 11
+weight = 4
 draft = false
 bref = ""
 toc = true
 menu = "theme"
+tags = [ "theme" ]
 +++
 
 <link rel="stylesheet" type="text/css" href="//overpass-30e2.kxcdn.com/overpass.css">

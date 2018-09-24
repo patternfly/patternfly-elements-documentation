@@ -1,11 +1,12 @@
 +++
 title = "Development Overview"
 description = "Build and create reusable web components."
-date = 2018-08-31T14:02:31-04:00
-weight = 20
+weight = 1
 draft = false
 bref = ""
 toc = true
+menu = "theme"
+tags = [ "theme" ]
 +++
 
 

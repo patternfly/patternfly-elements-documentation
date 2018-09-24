@@ -1,12 +1,12 @@
 +++
 title = "Setup"
 description = "Create your own bulletproof web component."
-date = 2018-08-31T14:02:31-04:00
-weight = 1
+weight = 2
 draft = false
 bref = ""
 toc = true
 menu = "develop"
+tags = [ "develop" ]
 +++
 
 ## Prerequisites

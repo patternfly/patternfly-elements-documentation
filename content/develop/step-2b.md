@@ -1,12 +1,12 @@
 +++
 title = "Write your HTML"
 description = ""
-date = 2018-08-31T14:02:31-04:00
-weight = 6
+weight = 5
 draft = false
 bref = ""
 toc = true
 menu = "develop"
+tags = [ "develop" ]
 +++
 
 

@@ -1,12 +1,12 @@
 +++
 title = "Polyfills"
 description = "Add polyfills to support all of the major browsers."
-date = 2018-08-31T14:02:31-04:00
-weight = 3
+weight = 4
 draft = false
 bref = ""
 toc = true
 menu = "start"
+tags = [ "start" ]
 +++
 
 ## Browser Support

@@ -1,12 +1,11 @@
 +++
 title = "Write your CSS (or Sass)"
 description = ""
-date = 2018-08-31T14:02:31-04:00
-weight = 7
+weight = 6
 draft = false
-bref = ""
 toc = true
 menu = "develop"
+tags = [ "develop" ]
 +++
 
 
