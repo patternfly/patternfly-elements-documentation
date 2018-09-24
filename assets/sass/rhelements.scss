@@ -15,7 +15,13 @@
 }
 
 a {
-  text-underline-position: under; // idk how I feel about this
+  font-size: 1rem;
+  letter-spacing: .2px;
+  color: #0d5b98;
+  
+  // @supports (text-underline-position: under) {
+  //   text-underline-position: under;
+  // }
   
   &:hover,
   &:focus {
@@ -123,7 +129,12 @@ header {
       border-left: none;
       
       a {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        
+        &:hover {
+          color: #06c;
+          transition: all .3s;
+        }
       }
     }
 
@@ -406,28 +417,32 @@ main {
     }
     
     h3 {
-      margin-bottom: .5rem;
-      color: #185281; // #206ead;
+      margin-top: 0;
+      margin-bottom: .4rem;
+      color: #0a4775;
       font-size: 1.3rem;
       font-weight: 700;
       letter-spacing: .2px;
+      line-height: 1.3;
       
       a {
         text-decoration: none;
-        color: #185281; // #206ead;
+        color: #0a4775;
         font-size: 1.3rem;
         font-weight: 700;
         letter-spacing: .2px;
+        line-height: 1.3;
       }
     }
     
     ul {
+      margin-bottom: 2rem;
       
       li {
-        margin-bottom: .3rem;
+        margin-bottom: .4rem;
         
         a {
-          color: #185281;
+          color: #0d5b98;
         }
       }
     }
@@ -438,11 +453,11 @@ main {
   }
   
   #content {
-    padding: 2.5rem 2.5rem 0;
+    padding: 2.5rem 2.5rem 0 2.5rem;
     
     @media (min-width: 1200px) {
       max-width: 55vw;
-      margin-right: 2rem;
+      // margin-right: 2rem;
     }
     
     #posts {
@@ -496,17 +511,17 @@ main {
     padding: 2.5rem 2rem 0 0;
     display: none;
     list-style-type: none;
-    width: 25vw;
+    width: 24vw;
     margin-left: auto;
     height: max-content;
-    padding-left: 1rem;
+    // padding-left: 1rem;
     
     @media (min-width: 1200px) {
       display: block;
     }
     
     h3 {
-      margin-bottom: 1rem;
+      margin-bottom: .9rem;
       font-size: 1.3rem;
       font-weight: 700;
       letter-spacing: .2px;
@@ -518,7 +533,7 @@ main {
       list-style-type: none;
       
       li {
-        margin-bottom: 1rem;
+        margin-bottom: .6rem;
         padding-left: 1.9rem;
         position: relative;
         line-height: 1.4;
@@ -534,7 +549,7 @@ main {
         }
         a {
           font-size: 1rem;
-          color: #185281;
+          color: #0d5b98;
         }
       }
     }
