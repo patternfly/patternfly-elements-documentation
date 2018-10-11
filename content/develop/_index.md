@@ -1,11 +1,12 @@
 +++
 title = "Development Overview"
 description = "Build and create reusable web components."
-date = 2018-08-31T14:02:31-04:00
-weight = 20
+weight = 1
 draft = false
 bref = ""
 toc = true
+menu = "theme"
+tags = [ "theme" ]
 +++
 
 
@@ -25,8 +26,6 @@ Before getting started, it's important to note that because this is a library, e
     - `Content` components should be equipped with styles for the `on="dark"` attribute, so that they can be used on both light and dark backgrounds. 
 4. Framework agnostic
     - A RHElement should “just work” when you drop it onto any page (provided the proper polyfills are there). It should have ALL the styles it needs, such as font-family properties.
-
-------------
 
 ## Container RHElements
 

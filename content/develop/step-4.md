@@ -1,12 +1,12 @@
 +++
 title = "Publish"
 description = ""
-date = 2018-08-31T14:02:31-04:00
-weight = 10
+weight = 9
 draft = false
 bref = ""
 toc = true
 menu = "develop"
+tags = [ "develop" ]
 +++
 
 

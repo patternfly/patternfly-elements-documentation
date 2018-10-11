@@ -1,13 +1,12 @@
 +++
 title = "Browser Support"
 description = "RHElements supports all of the major browsers."
-date = 2018-08-31T14:02:31-04:00
-weight = 1
+weight = 2
 draft = false
 bref = ""
 toc = true
 menu = "start"
-tag = "start"
+tags = [ "start" ]
 +++
 
 RHElements are built on top of the [Custom Elements v1 spec](https://w3c.github.io/webcomponents/spec/custom/), but we can support all of the major browsers with web components polyfills, including IE 11.

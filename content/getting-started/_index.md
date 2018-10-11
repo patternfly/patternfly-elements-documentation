@@ -1,11 +1,12 @@
 +++
 title = "Getting Started"
 description = "Use a RHElement in your web site or web app."
-date = 2018-08-31T14:02:31-04:00
-weight = 20
+weight = 1
 draft = false
 bref = ""
 toc = true
+menu = "start"
+tags = [ "start" ]
 +++
 
 

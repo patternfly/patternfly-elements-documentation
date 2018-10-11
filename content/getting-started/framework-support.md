@@ -1,12 +1,12 @@
 +++
 title = "Framework Support"
 description = "Our mission is to create web components that will work with any of the JavaScript frameworks."
-date = 2018-08-31T14:02:31-04:00
-weight = 2
+weight = 3
 draft = false
 bref = ""
 toc = true
 menu = "start"
+tags = [ "start" ]
 +++
 
 ## Supported and Tested Frameworks

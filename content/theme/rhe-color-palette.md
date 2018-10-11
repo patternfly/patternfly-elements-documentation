@@ -1,12 +1,12 @@
 +++
 title = "RHElements color palette"
 description = ""
-date = 2018-09-15T14:02:31-04:00
-weight = 5
+weight = 3
 draft = false
 bref = ""
 toc = true
 menu = "theme"
+tags = [ "theme" ]
 +++
 
 
