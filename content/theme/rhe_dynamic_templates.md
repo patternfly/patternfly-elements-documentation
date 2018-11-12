@@ -44,7 +44,7 @@ Should you need to capture information via an attribute property on your web com
 
 ## Data Object
 
-If you want to loop over a set of data, you can do so by utilizing the constructor. You’ll need to delay rendering of the component though because...
+If you want to loop over a set of data, you can do so by utilizing the constructor. You may need to delay rendering of the component.
 
 ```
 // Component javascript:
