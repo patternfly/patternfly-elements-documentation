@@ -1,7 +1,7 @@
 +++
 title = "Dynamic HTML Templates"
 description = ""
-weight = 5
+weight = 6
 draft = false
 bref = ""
 toc = true
