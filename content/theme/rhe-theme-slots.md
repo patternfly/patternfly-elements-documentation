@@ -83,47 +83,48 @@ Then both the div and link tag would be styled:
  </rh-cta>
 ```
 
-However if the link tag is nested inside the div, then it would not receive styles because it’s not a direct child of the rh-cta component.
+However, if the link tag is nested inside the div, then it would not receive styles because it’s not a direct child of the rh-cta component.
 
 ```
  <rh-cta priority="primary">
    <div>
-     <a href="#">cannot receive styles, because it’s nested</a>
+     <a href="#">cannot receive styles, because it’s not a direct descendant of the slot. The div is.</a>
    </div>
  </rh-cta>
 ```
 
 ## Styling Slots
 
-The lines blur between shadow DOM & light DOM when slots are involved. Basically if you add `slot=" "` to a regular HTML element inside a web component, you are opening a window to allow styles from the web component to style that thing. It only applies directly to the item with the slot name on it though, nothing nested inside it. 
+The lines blur between shadow DOM & light DOM when slots are involved. If you add `slot=" "` to a regular HTML element inside a web component, you are opening a window to allow styles from the web component to style that thing. It only applies directly to the item with the slot name on it though, nothing nested inside it. 
 
 The examples below would be inside the my-component.scss file:
 
-
-* Style any slot. Probably way too general.
-    * `::slotted() { color: red; }` 
+* Style the slot itself.
+    * `slot { border: green solid 1px; }` 
+* Style any content within a slot. Probably way too general.
+    * `::slotted() { border: red solid 1px; }` 
 * Style any iframe in any slot. Still too general.
-    * `::slotted(iframe) { color: red; }` 
-
-* Style any HTML element with attribute **slot="video"**, but not anything *inside* the slot.
-    * `[name="video"]::slotted(*)  { color: red; }` will style some of the markup inside the web component:
+    * `::slotted(iframe) { border: red solid 1px; }` 
+* Style any HTML element inside of a slot with the attribute **slot="video"**
+    * `[name="video"]::slotted(*)  { border-color: red solid 1px; }` will style direct children of the slot:
 
     * ```
-	<my-component>
-       <h1 slot="video">I will be red!</h1>
-	    <div slot="video">
-	        <h2>I will not be red.</h2>
-	    </div>
+    <my-component>
+       <div slot="video"> 
+	   <span> <!--I will have a red border-->
+	      <h2>I will not have a red border.</h2>
+	   </span>
+       </div>
     </my-component>
 	```
 
 * Add further specificity, styling only iframes with the slot="video"
     * `[name="video"]::slotted(iframe)  { color: red; }`
 
-* Just for the record, here are some examples that *won’t* work:
+* Just for the record, the elmeent you are targeting within the slot must be within the parenthesis but you cannot add anything after that:
 
     * ` ::slotted() iframe[name="video"] {}`
-    * ` ::slotted() h2 {}`
+    * ` ::slotted(h2) a {}`
     * ` ::slotted() anything_here… {}`
 
 ## Document styles vs. web component styles
