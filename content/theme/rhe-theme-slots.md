@@ -121,7 +121,7 @@ The examples below would be inside the my-component.scss file:
 * Add further specificity, styling only iframes with the slot="video"
     * `[name="video"]::slotted(iframe)  { color: red; }`
 
-* Just for the record, the elmeent you are targeting within the slot must be within the parenthesis but you cannot add anything after that:
+* Just for the record, the element you are targeting within the slot must be within the parenthesis but you cannot add anything after that:
 
     * ` ::slotted() iframe[name="video"] {}`
     * ` ::slotted(h2) a {}`
