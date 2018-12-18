@@ -10,11 +10,11 @@ tags = [ "info" ]
 +++
 
 
-# Contribute to RHElements
+# Contribute to PatternFly Elements
 
 ## How to Report a Bug
 
-Think you found a bug? Please check [the list of open issues](https://github.com/RHElements/rhelements/issues) to see if your bug has already been reported. If it hasn't please [submit a new issue](https://github.com/RHElements/rhelements/issues/new).
+Think you found a bug? Please check [the list of open issues](https://github.com/patternfly/patternfly-elements/issues) to see if your bug has already been reported. If it hasn't please [submit a new issue](https://github.com/patternfly/patternfly-elements/issues/new).
 
 ## How to Suggest a Feature or Enhancement
 

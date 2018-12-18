@@ -50,7 +50,7 @@ If you want to loop over a set of data, you can do so by utilizing the construct
 // Component javascript:
 
  constructor() {
-    super(RhVideoBand, {
+    super(PfeVideoBand, {
       delayRender: true
     });
 

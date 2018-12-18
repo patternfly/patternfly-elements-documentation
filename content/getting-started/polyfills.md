@@ -23,7 +23,7 @@ the head of your document.
 <html>
   <head>
     <meta charset="utf-8">
-    <title>RHElements</title>
+    <title>PatternFly Elements</title>
 
     <!-- polyfills -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.10/custom-elements-es5-adapter.js"></script>
@@ -59,12 +59,12 @@ this error because it will not cause issues with your elements.
 		4.  If you don't have HTTP2 + server push, it might take a little longer. If you have 3 cards on the page, would it load that script 3 times? No because cache.
 
 
-2.  The card could show up on the page with rh-card.js, which then declares a dependency on rhelement.js.
-![rh-card dependency](/rh-card-dependency.png)
+2.  The card could show up on the page with pfe-card.js, which then declares a dependency on pfelement.js.
+![pfe-card dependency](/pfe-card-dependency.png)
 
 
 <a name="ES6"></a>
 ### ES6
 
-Check out the ES6 rhelement and include it.
+Check out the ES6 pfelement and include it.
 

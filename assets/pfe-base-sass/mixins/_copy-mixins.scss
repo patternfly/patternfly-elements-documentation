@@ -1,4 +1,4 @@
-@mixin rh-accessibility-focus( $color: $link-color ) {
+@mixin pfe-accessibility-focus( $color: $link-color ) {
     outline-offset: 1px;
     outline-style: dotted;
     outline-width: 1px;
@@ -9,7 +9,7 @@
     }
 }
 
-@mixin rh-underline( $color: default-link-hover-line, $opacity: 1 ) {
+@mixin pfe-underline( $color: default-link-hover-line, $opacity: 1 ) {
     text-decoration: underline;
     text-decoration-skip: ink;
 }

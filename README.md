@@ -1,4 +1,4 @@
-# RHElements Documentation
+# PatternFly Elements Documentation
 
 Welcome to the main repository for our documentation!
 

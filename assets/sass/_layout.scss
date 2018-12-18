@@ -4,39 +4,39 @@
 // ============================================================================
 //
 // Global vars are named:
-// `$rh-global--concept--PropertyTitleCase--modifier--state`
+// `$pfe-global--concept--PropertyTitleCase--modifier--state`
 // For example:
-// * $rh-global--color--primary
-// * $rh-global--FontSize
+// * $pfe-global--color--primary
+// * $pfe-global--FontSize
 // * --rhe-theme--FontSize--heading--xs
 
 // Component/Element vars are named:
-// `$rh-c-block__element--modifier--state--PropertyTitleCase`
+// `$pfe-c-block__element--modifier--state--PropertyTitleCase`
 // For example:
-// * --rh-dropdown--heading--FontSize
+// * --pfe-dropdown--heading--FontSize
 // * --cp-accordion--heading--FontSize
 
 :root {
   /* GRID BREAKPOINTS */
-  --rhe-theme--grid-breakpoint--xs:       $rh-global--grid-breakpoint--xs;
-  --rhe-theme--grid-breakpoint--sm:       $rh-global--grid-breakpoint--sm;
-  --rhe-theme--grid-breakpoint--md:       $rh-global--grid-breakpoint--md;
-  --rhe-theme--grid-breakpoint--lg:       $rh-global--grid-breakpoint--lg;
-  --rhe-theme--grid-breakpoint--xl:       $rh-global--grid-breakpoint--xl;
+  --rhe-theme--grid-breakpoint--xs:       $pfe-global--grid-breakpoint--xs;
+  --rhe-theme--grid-breakpoint--sm:       $pfe-global--grid-breakpoint--sm;
+  --rhe-theme--grid-breakpoint--md:       $pfe-global--grid-breakpoint--md;
+  --rhe-theme--grid-breakpoint--lg:       $pfe-global--grid-breakpoint--lg;
+  --rhe-theme--grid-breakpoint--xl:       $pfe-global--grid-breakpoint--xl;
 
-  --rhe-theme--grid-breakpoint--xs--max:  $rh-global--grid-breakpoint--xs--max;
-  --rhe-theme--grid-breakpoint--sm--max:  $rh-global--grid-breakpoint--sm--max;
-  --rhe-theme--grid-breakpoint--md--max:  $rh-global--grid-breakpoint--md--max;
-  --rhe-theme--grid-breakpoint--lg--max:  $rh-global--grid-breakpoint--lg--max;
+  --rhe-theme--grid-breakpoint--xs--max:  $pfe-global--grid-breakpoint--xs--max;
+  --rhe-theme--grid-breakpoint--sm--max:  $pfe-global--grid-breakpoint--sm--max;
+  --rhe-theme--grid-breakpoint--md--max:  $pfe-global--grid-breakpoint--md--max;
+  --rhe-theme--grid-breakpoint--lg--max:  $pfe-global--grid-breakpoint--lg--max;
 
   /* SPACERS / GUTTERS */
-  --rhe-theme--spacer--xs:                $rh-global--spacer--xs;
-  --rhe-theme--spacer--sm:                $rh-global--spacer--sm;
-  --rhe-theme--spacer:                    $rh-global--spacer; // base
-  --rhe-theme--spacer--md:                $rh-global--spacer--md;
-  --rhe-theme--spacer--lg:                $rh-global--spacer--lg;
-  --rhe-theme--spacer--xl:                $rh-global--spacer--xl;
-  --rhe-theme--spacer--xxl:               $rh-global--spacer--xxl;
+  --rhe-theme--spacer--xs:                $pfe-global--spacer--xs;
+  --rhe-theme--spacer--sm:                $pfe-global--spacer--sm;
+  --rhe-theme--spacer:                    $pfe-global--spacer; // base
+  --rhe-theme--spacer--md:                $pfe-global--spacer--md;
+  --rhe-theme--spacer--lg:                $pfe-global--spacer--lg;
+  --rhe-theme--spacer--xl:                $pfe-global--spacer--xl;
+  --rhe-theme--spacer--xxl:               $pfe-global--spacer--xxl;
 }
 
 $xs:                      	480px;
@@ -79,7 +79,7 @@ $gutter_width_lg:           45px;
 @mixin FlexItemModifiers($suffix: null) {
   // generate column span modifiers
   @for $col-num from 1 through 12 {
-    > .rh-m-#{$col-num}-col#{$suffix} {
+    > .pfe-m-#{$col-num}-col#{$suffix} {
       $this-size: ($col-num / 12) * 100%;
       width: calc(#{$this-size} - #{$base_gutter_width});
     }
@@ -95,7 +95,7 @@ $gutter_width_lg:           45px;
 @mixin GridItemModifiers($suffix: null) {
   // generate column span modifiers
   @for $col-num from 1 through 12 {
-    > .rh-m-#{$col-num}-col#{$suffix} {
+    > .pfe-m-#{$col-num}-col#{$suffix} {
       grid-column-start: auto;
       grid-column-end: span $col-num;
     }
@@ -103,21 +103,21 @@ $gutter_width_lg:           45px;
 
   // // generate column offset modfiers
   @for $col-num from 1 through 12 {
-    > .rh-m-offset-#{$col-num}-col#{$suffix} {
+    > .pfe-m-offset-#{$col-num}-col#{$suffix} {
       grid-column-start: col ($col-num + 1);
     }
   }
 
   // generate column startat modfiers
   @for $col-num from 1 through 12 {
-    > .rh-m-startat-#{$col-num}-col#{$suffix} {
+    > .pfe-m-startat-#{$col-num}-col#{$suffix} {
       grid-column-start: $col-num !important; // removed +1 so it's value is literal.
     }
   }
 
   // generate row span modfiers
   @for $row-num from 1 through 12 {
-    > .rh-m-#{$row-num}-row#{$suffix} {
+    > .pfe-m-#{$row-num}-row#{$suffix} {
       grid-row: span $row-num;
     }
   }
@@ -125,7 +125,7 @@ $gutter_width_lg:           45px;
 
 @mixin FlexAllModifiers($suffix: null) {
   @for $col-num from 1 through 12 {
-    &.rh-m-all-#{$col-num}-col#{$suffix} {
+    &.pfe-m-all-#{$col-num}-col#{$suffix} {
       > * {
         $this-size: ($col-num / 12) * 100%;
         width: calc(#{$this-size} - #{$base_gutter_width});
@@ -136,7 +136,7 @@ $gutter_width_lg:           45px;
 
 @mixin GridAllModifiers($suffix: null) {
   @for $col-num from 1 through 12 {
-    &.rh-m-all-#{$col-num}-col#{$suffix} {
+    &.pfe-m-all-#{$col-num}-col#{$suffix} {
       > * {
         grid-column-start: auto;
         grid-column-end: span $col-num;
@@ -147,7 +147,7 @@ $gutter_width_lg:           45px;
 
 /// Flex base
 @supports not (display: grid) {
-  .rh-l-grid {
+  .pfe-l-grid {
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
@@ -177,7 +177,7 @@ $gutter_width_lg:           45px;
       }
     }
 
-    &.rh-m-gutters {
+    &.pfe-m-gutters {
       margin: -$base_gutter_width / 2;
         
         & > * {
@@ -188,7 +188,7 @@ $gutter_width_lg:           45px;
 }
 
 @supports (display: grid) {
-  .rh-l-grid {
+  .pfe-l-grid {
     display: grid;
     grid-template-columns: repeat(12, [col-start] 1fr); // throws an error in Compass's compilation
     // grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -218,7 +218,7 @@ $gutter_width_lg:           45px;
       }
     }
 
-    &.rh-m-gutters {
+    &.pfe-m-gutters {
       grid-gap: $base_gutter_width;
     }
   }
