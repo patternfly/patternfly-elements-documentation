@@ -33,10 +33,26 @@ Instead, do your development in the `/src` directory of your element. In the `/s
 
 ## Develop
 
-Run the dev script in the package.json file at the root of the element you just created and Gulp will start watching the files in your `/src` directory and will run a build each time you edit one of those files.
+To watch for changes and run a build when changes are detected, run this from the RHElements root directory.
 
 ```
 npm run dev
+```
+
+You may find that you dislike watching all the elements at once.  It may start up too slowly, consume too many system resources, or your OS may run out of file descriptors from watching too many files.  If any of these are the case, you can shrink the set of elements being watched by using Lerna's [`--scope`](https://github.com/lerna/lerna/tree/master/core/filter-options#--scope-glob) flag.
+
+For example, to watch only `rh-icon` and its dependencies:
+
+```
+npm run dev rh-icon
+```
+
+*Note that this will also automatically begin watching dependencies of `rh-icon`, such as `rhelement`.*
+
+You may also specify multiple elements.  For example, `rh-card` and `rh-cta` are often used together, so you may wish to watching them both.
+
+```
+npm run dev rh-card rh-cta
 ```
 
 ## Preview Your Changes
