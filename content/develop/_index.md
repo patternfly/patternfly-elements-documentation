@@ -83,8 +83,9 @@ Attributes should include the `pfe-` prefix in order to:
 Some attributes are standardized. 
 
 - `pfe-type="content"`
+    - Automatically added
     - Intended to provide context about parent child relationships and separation of concerns
-    - Other values: `container combo`
+    - Other values: `container, combo`
 - `pfe-orientation="vertical"`
     - To change alignment of a container component 
     - Other values: `horizontal`
@@ -93,8 +94,15 @@ Some attributes are standardized.
     - Other values: `collapsed`
 - `pfe-variant="earth"`
     - The purpose is to group various styles together into one batch of settings, and to be abstract enough to allow for the evolution of the design system. The values are arbirtary and do not convey information about the styles.
-    - Other values: earth, wind, fire, water
+    - Other values: `earth, wind, fire, water`
 - `pfe-surface-color="complement"`
     - Purpose: Invoke palette color overrides
-    - Example values: `base accent`
-    - @todo Can this mean background color and/or background color?
+    - Example values: `base, accent`
+
+### Variant attribute
+
+The variant attribute (`pfe-variant`) is used across all our components. It allows multiple styles to be grouped together into batches.  These styles are connected in the design system and allows for one pattern to communicate effectively in different design situations.  
+
+For example, the tab component's default look resembles a manilla folder design with square boxes around each tab and no line below the active tab.  Other visual treatments of this same pattern might include one thick solid underline beneath or beside the tabs or making each tab resemble a button.  
+- `pfe-variant="fire"`
+- Other values: `earth`, `wind`, `water`
