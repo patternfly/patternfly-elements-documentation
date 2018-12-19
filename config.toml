@@ -8,7 +8,7 @@ canonifyURLs = true
   author = "PatternFly Elements" # add your company name
   github = "" # add your github profile name
   twitter = "" # add your twitter profile
-  email = "rhelements@redhat.com"
+  email = "patternfly-elements-announce@redhat.com"
   features = [
     "Minimalism","Mobile-first Design",
     "Responsive Design",

@@ -10,5 +10,5 @@ tags = [ "info" ]
 +++
 
 
-Drop us a line at [rhelements@redhat.com](mailto:rhelements@redhat.com)
+Drop us a line at [patternfly-elements-announce@redhat.com](mailto:patternfly-elements-announce@redhat.com)
 
