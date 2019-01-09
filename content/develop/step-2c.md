@@ -30,7 +30,7 @@ Your Sass file will initially import additional Sass from the pfe-sass node modu
 Now we can update our styles, like so:
 
 ```
-@import "node_modules/@pfelements/pfe-sass/pfe-sass";
+@import "node_modules/@patternfly/pfe-sass/pfe-sass";
 :host {
   display: flex;
   flex-direction: column;
