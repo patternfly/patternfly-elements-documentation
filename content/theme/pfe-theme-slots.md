@@ -44,7 +44,7 @@ There seem to be lots of tricky gotchas related to web components, and a *lot* o
 </my-component>
 ```
 
-* You can’t have nested slots *with the same name *(but when you use different names, the WC will pick up the content and put it where it belongs in the WC template)
+* You can’t have nested slots.
 
 ```
 // my-web-page.html:
@@ -53,13 +53,7 @@ There seem to be lots of tricky gotchas related to web components, and a *lot* o
      <h1 slot="header">Nope</h1>
    </div>
  </my-component>
- 	
- // But...
- <my-component>
-   <div slot="header">
-     <h1 slot="header__content">Yep</h1>
-   </div>
- </my-component>
+
  ```
 
 * The reason that we are able to style links within the CTA component is because the `<a>` tag is being passed into the only unnamed slot in the CTA component. The link tag doesn’t need an explicit attribute like `slot="link"` because if a web component has one unnamed `<slot></slot>` then anything you put inside that custom component tag will be in that slot by default. 
@@ -95,15 +89,17 @@ However, if the link tag is nested inside the div, then it would not receive sty
 
 ## Styling Slots
 
-The lines blur between shadow DOM & light DOM when slots are involved. If you add `slot=" "` to a regular HTML element inside a web component, you are opening a window to allow styles from the web component to style that thing. It only applies directly to the item with the slot name on it though, nothing nested inside it. 
+The lines blur between shadow DOM & light DOM when slots are involved. If you add `slot="name_of_slot"` to a regular HTML element inside a web component, you are opening a window to allow styles from the web component to style that thing. The `::slotted()` CSS pseudo-element represents any element that has been placed into a slot inside an HTML template.
+
+This only works when used inside CSS placed within a shadow DOM. Note also that this selector won't select a text node placed into a slot; it only targets actual elements. *Meaning, these styles _only_ apply directly to the item with the slot name on it though, nothing nested inside it.* 
 
 The examples below would be inside the my-component.scss file:
 
-* Style the slot itself.
-    * `slot { border: green solid 1px; }` 
-* Style any content within a slot. Probably way too general.
+* Style any content with the slot attribute. 
     * `::slotted() { border: red solid 1px; }` 
-* Style any iframe in any slot. Still too general.
+* Style any content with the slot attribute. 
+    * `::slotted() { border: red solid 1px; }` 
+* Style any iframe with the slot attribute.
     * `::slotted(iframe) { border: red solid 1px; }` 
 * Style any HTML element inside of a slot with the attribute **slot="video"**
     * `[name="video"]::slotted(*)  { border-color: red solid 1px; }` will style direct children of the slot:
@@ -123,9 +119,11 @@ The examples below would be inside the my-component.scss file:
 
 * Just for the record, the element you are targeting within the slot must be within the parenthesis but you cannot add anything after that:
 
-    * ` ::slotted() iframe[name="video"] {}`
+    * ` ::slotted() [name="video"] {}`
     * ` ::slotted(h2) a {}`
     * ` ::slotted() anything_here… {}`
+
+[Demo on JS Fiddle](https://jsfiddle.net/kendalltotten/7n3ep9q0/27/)
 
 ## Document styles vs. web component styles
 
