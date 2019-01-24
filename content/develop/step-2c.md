@@ -10,14 +10,14 @@ tags = [ "develop" ]
 
 
 
-We want the `rh-cool-element` to have a profile photo, a username, and a follow button. Right now, it only contains the HTML structure, but we can style our element by updating our Sass (or CSS) to make it look the way we want.
+We want the `pfe-cool-element` to have a profile photo, a username, and a follow button. Right now, it only contains the HTML structure, but we can style our element by updating our Sass (or CSS) to make it look the way we want.
 
-We'll be working in the `/src/rh-cool-element.scss` file since we decided to use the Sass option in the RHElement generator.
+We'll be working in the `/src/pfe-cool-element.scss` file since we decided to use the Sass option in the PatternFly Element generator.
 
-Your Sass file will initially import additional Sass from the rh-sass node module, but we can ignore that for now. The second part has a `:host` selector that makes our element display as a block element.
+Your Sass file will initially import additional Sass from the pfe-sass node module, but we can ignore that for now. The second part has a `:host` selector that makes our element display as a block element.
 
 ```
-@import "../../rh-sass/rh-sass";
+@import "../../pfe-sass/pfe-sass";
 :host {
   display: block;
 }
@@ -30,7 +30,7 @@ Your Sass file will initially import additional Sass from the rh-sass node modul
 Now we can update our styles, like so:
 
 ```
-@import "node_modules/@rhelements/rh-sass/rh-sass";
+@import "node_modules/@patternfly/pfe-sass/pfe-sass";
 :host {
   display: flex;
   flex-direction: column;
@@ -64,15 +64,15 @@ After saving and viewing our demo page, our profile element looks much better.
 
 
 A couple of things to note: 
-1. The `:host` selector sets the styles of the container element `<rh-cool-element>`. 
+1. The `:host` selector sets the styles of the container element `<pfe-cool-element>`. 
 2. The `button` styles are encapsulated within this element and will not bleed out, meaning that there's no worry of this it affecting other buttons on the page. Feeling confident that your element will always look the same when it's distributed is one of the main advantages of the shadow DOM. Check out the Styling section of [Shadow DOM v1: Self-Contained Web Components](https://developers.google.com/web/fundamentals/web-components/shadowdom#styling) to learn what else you can do with styling the shadow DOM.
 
 Now that our demo page is updated, let's take a look at what happened to the ES6 version of the element in the root of our element's directory.
 
 ```
-import RHElement from "../rhelement/rhelement.js";
+import PFElement from "../pfelement/pfelement.js";
 
-class RhCoolElement extends RHElement {
+class PfeCoolElement extends PFElement {
   get html() {
     return `
 <style>
@@ -108,29 +108,29 @@ button {
   }
 
   static get tag() {
-    return "rh-cool-element";
+    return "pfe-cool-element";
   }
 
   get templateUrl() {
-    return "rh-cool-element.html";
+    return "pfe-cool-element.html";
   }
 
   get styleUrl() {
-    return "rh-cool-element.scss";
+    return "pfe-cool-element.scss";
   }
 
   constructor() {
-    super(RhCoolElement.tag);
+    super(PfeCoolElement.tag);
   }
 }
 
-RHElement.create(RhCoolElement);
+PFElement.create(PfeCoolElement);
 ```
 
 You'll notice ```<style>``` contains everything we just wrote in our Sass file. Sass variables will also compiled their values and get included in the changes above.
 
-Now that our `rh-cool-element` is more appealing, we'll add the follow button's interaction and fill in the profile photo. We can accomplish both of these tasks by updating the `/src/rh-cool-element.js` file.
+Now that our `pfe-cool-element` is more appealing, we'll add the follow button's interaction and fill in the profile photo. We can accomplish both of these tasks by updating the `/src/pfe-cool-element.js` file.
 
-<a href="/theme/rhe-color">Learn more about applying theme colors here.</a>
+<a href="/theme/cp-color">Learn more about applying theme colors here.</a>
 
 [Move to Step 2: Develop (Javascript)](../step-2d)

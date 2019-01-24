@@ -10,64 +10,65 @@ tags = [ "develop" ]
 +++
 
 
-Run the dev command found in the package.json file at the root of your element to start watching for changes to any files located in the `/src` directory. This will build rh-cool-element.js and rh-cool-element.umd.js whenever you save changes.
+Run the dev command found in the package.json file at the root of your element to start watching for changes to any files located in the `/src` directory. This will build pfe-cool-element.js and pfe-cool-element.umd.js whenever you save changes.
 
 ```
 # from the root of your element
 npm run dev
 ```
 
-After running the dev command, start a server at the root of the RHElements repository to view it in the browser.
+After running the dev command, start a server at the root of the PatternFly Elements repository to view it in the browser.
 
 ```
-# from the root of the RHElements repository
+# from the root of the PatternFly Elements repository
 npm start
 ```
 
 This will start a simple HTTP server that reloads the browser as you update your element.
 
-![npm start command](/rh-cool-element-start.png)
+![npm start command](/pfe-cool-element-start.png)
 
-Navigate to `http://localhost:1234/elements/rh-cool-element/demo/` to view your element.
+Navigate to `http://localhost:1234/elements/pfe-cool-element/demo/` to view your element.
 
-You're off to a good start! You have a new custom element that extends the base RHElement class, uses shadow DOM, and has a built-in fallback for ShadyCSS in case shadow DOM isn't supported.
+You're off to a good start! You have a new custom element that extends the base PFElement class, uses shadow DOM, and has a built-in fallback for ShadyCSS in case shadow DOM isn't supported.
 
-Let's take a look at the rh-cool-element.js file in the `/src` directory to see what we have.
+Let's take a look at the pfe-cool-element.js file in the `/src` directory to see what we have.
 
 ```
-import RHElement from "../rhelement/rhelement.js";
+import PFElement from "../pfelement/pfelement.js";
 
-class RhCoolElement extends RHElement {
+class PfeCoolElement extends PFElement {
   static get tag() {
-    return "rh-cool-element";
+    return "pfe-cool-element";
   }
 
   get templateUrl() {
-    return "rh-cool-element.html";
+    return "pfe-cool-element.html";
   }
 
   get styleUrl() {
-    return "rh-cool-element.scss";
+    return "pfe-cool-element.scss";
   }
 
   constructor() {
-    super(RhCoolElement.tag);
+    super(PfeCoolElement.tag);
   }
 }
 
-RHElement.create(RhCoolElement);
+PFElement.create(pfeCoolElement);
+export default PfeCoolElement;
 ```
 
-First, notice how we're using ES6 module imports and that we import the RHElement base element.
+First, notice how we're using ES6 module imports and that we import the PFElement base element.
 ```
-import RHElement from '../rhelement/rhelement.js';
+import PFElement from '../pfelement/pfelement.js';
 ```
 
 Second, we define the string for the HTML tag that we want to use.
 
 ```
 static get tag() {
-  return "rh-cool-element";
+  return "pfe-cool-element";
 }
 ```
 
@@ -75,11 +76,11 @@ Third, we reference where the HTML for our template and Sass styles are located.
 
 ```
 get templateUrl() {
-  return "rh-cool-element.html";
+  return "pfe-cool-element.html";
 }
 
 get styleUrl() {
-  return "rh-cool-element.scss";
+  return "pfe-cool-element.scss";
 }
 ```
 
@@ -89,16 +90,16 @@ Fourth, you'll see the constructor for the element.
 
 ```
 constructor() {
-  super(RhCoolElement.tag);
+  super(PfeCoolElement.tag);
 }
 ```
 
-The RHElement base element creates a shadow root to handle the ShadyCSS work for browsers that don't support shadow DOM.
+The PFElement base element creates a shadow root to handle the ShadyCSS work for browsers that don't support shadow DOM.
 
-Finally, we register our element using the `create` method from the RHElement class. This method calls `window.customElements.define`.
+Finally, we register our element using the `create` method from the PFElement class. This method calls `window.customElements.define`.
 
 ```
-RHElement.create(RhCoolElement);
+PFElement.create(PfeCoolElement);
 ```
 
 For questions on how Custom Elements work, or if you want to learn the basics of shadow DOM, check out Eric Bidelman's post: [Custom Elements v1: Reusable Web Components](https://developers.google.com/web/fundamentals/web-components/customelements).

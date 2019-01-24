@@ -1,14 +1,14 @@
 baseURL = "https://rhelements.github.io/"
 languageCode = "en-us"
-title = "RHElements"
+title = "PatternFly Elements"
 theme = "kube"
 canonifyURLs = true
 
 [Params]
-  author = "RHElements" # add your company name
+  author = "PatternFly Elements" # add your company name
   github = "" # add your github profile name
   twitter = "" # add your twitter profile
-  email = "rhelements@redhat.com"
+  email = "patternfly-elements-announce@redhat.com"
   features = [
     "Minimalism","Mobile-first Design",
     "Responsive Design",

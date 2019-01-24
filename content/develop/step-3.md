@@ -10,7 +10,7 @@ tags = [ "develop" ]
 
 
 
-Let's write a test for the `rh-cool-element`. 
+Let's write a test for the `pfe-cool-element`. 
 
 We rely on a few tools to ensure our element is reliable in production: 
 1. [Web Component Tester](https://github.com/Polymer/web-component-tester), built and maintained by the Polymer team, makes testing easy. All we have to do is add the element's HTML to a file and set up our suite of tests. 
@@ -23,9 +23,9 @@ If you followed the [Prerequisites]({{ "/docs/get-started.html#prerequisites" | 
 
 ### Test Setup
 
-In the root of the element, there's a `/test` directory with an `index.html` and a `rh-cool-element_test.html` file. The `index.html` file tells Web Component Tester which files to test. 
+In the root of the element, there's a `/test` directory with an `index.html` and a `pfe-cool-element_test.html` file. The `index.html` file tells Web Component Tester which files to test. 
 
-For this example, `rh-cool-element_test.html` is the only file.
+For this example, `pfe-cool-element_test.html` is the only file.
 
 ```
 <!doctype html>
@@ -39,7 +39,7 @@ For this example, `rh-cool-element_test.html` is the only file.
     <script>
       // Load and run all tests (.html, .js):
       WCT.loadSuites([
-        'rh-cool-element_test.html'
+        'pfe-cool-element_test.html'
       ]);
     </script>
 
@@ -48,7 +48,7 @@ For this example, `rh-cool-element_test.html` is the only file.
 
 We've included the web component polyfill and `wct-browser-legacy/browser.js` in the `/test/index.html` file. We need `wct-browser-legacy/browser.js` because Web Component Tester looks for web components loaded from a `bower_components` directory. However, our web components are installed via npm and served from a `node_modules` directory, meaning that we're required to use `wct-browser-legacy` (Reference to the [Node support section of the Web Component Tester README](https://github.com/Polymer/web-component-tester#node-support)).
 
-The setup for `/test/rh-cool-element_test.html` is pretty simple. 
+The setup for `/test/pfe-cool-element_test.html` is pretty simple. 
 
 We'll add four stubs for the functionality we need to test:
 
@@ -60,18 +60,18 @@ We'll add four stubs for the functionality we need to test:
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
     <script src="/components/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
     <script src="/components/web-component-tester/browser.js"></script>
-    <script type="module" src="../rh-cool-element.js"></script>
+    <script type="module" src="../pfe-cool-element.js"></script>
   </head>
   <body>
-    <rh-cool-element photo-url="https://avatars2.githubusercontent.com/u/330256?s=400&u=de56919e816dc9f821469c2f86174f29141a896e&v=4">
+    <pfe-cool-element photo-url="https://avatars2.githubusercontent.com/u/330256?s=400&u=de56919e816dc9f821469c2f86174f29141a896e&v=4">
       Kyle Buchanan
-    </rh-cool-element>
+    </pfe-cool-element>
 
     <script>
-      suite('<rh-cool-element>', () => {
+      suite('<pfe-cool-element>', () => {
         test('it should upgrade', () => {
-          const rhCoolElement = document.querySelector('rh-cool-element');
-          assert.instanceOf(rhCoolElement, customElements.get("rh-cool-element", 'rh-cool-element should be an instance of rhCoolElement'));
+          const pfeCoolElement = document.querySelector('pfe-cool-element');
+          assert.instanceOf(pfeCoolElement, customElements.get("pfe-cool-element", 'pfe-cool-element should be an instance of pfeCoolElement'));
         });
 
         test('it should set a username from the light DOM', () => {
@@ -97,7 +97,7 @@ We'll add four stubs for the functionality we need to test:
 
 Note that we using `<script type="module"...` to load our element definition to make sure we're testing the true source of our element instead of the transpiled version. You'll also notice the HTML included to set up our tests. This is the same HTML from our `/demo/index.html` file.
 
-Lastly, there's one additional piece that can help us test thoroughly. In the root of the RHElements repo, locate the `wct.conf.json` file. 
+Lastly, there's one additional piece that can help us test thoroughly. In the root of the PatternFly Elements repo, locate the `wct.conf.json` file. 
 
 We'll use this to tell Web Component Tester to test in both Chrome and Firefox:
 
@@ -121,7 +121,7 @@ Now that our setup is complete, we can start building our tests.
 
 ### Test Cases
 
-Let's build out the 'rh-cool-element' test suites. We'll use `document.querySelector` to grab our element and include DOM API methods to interact with what we're testing.
+Let's build out the 'pfe-cool-element' test suites. We'll use `document.querySelector` to grab our element and include DOM API methods to interact with what we're testing.
 
 Here is the code:
 
@@ -133,22 +133,22 @@ Here is the code:
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
     <script src="/components/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
     <script src="/components/web-component-tester/browser.js"></script>
-    <script type="module" src="../rh-cool-element.js"></script>
+    <script type="module" src="../pfe-cool-element.js"></script>
   </head>
   <body>
-    <rh-cool-element photo-url="https://avatars2.githubusercontent.com/u/330256?s=400&u=de56919e816dc9f821469c2f86174f29141a896e&v=4">
+    <pfe-cool-element photo-url="https://avatars2.githubusercontent.com/u/330256?s=400&u=de56919e816dc9f821469c2f86174f29141a896e&v=4">
       Kyle Buchanan
-    </rh-cool-element>
+    </pfe-cool-element>
 
     <script>
-      suite('<rh-cool-element>', () => {
+      suite('<pfe-cool-element>', () => {
         test('it should upgrade', () => {
-          const rhCoolElement = document.querySelector('rh-cool-element');
-          assert.instanceOf(rhCoolElement, customElements.get("rh-cool-element", 'rh-cool-element should be an instance of rhCoolElement'));
+          const pfeCoolElement = document.querySelector('pfe-cool-element');
+          assert.instanceOf(pfeCoolElement, customElements.get("pfe-cool-element", 'pfe-cool-element should be an instance of pfeCoolElement'));
         });
 
         test('it should set a username from the light DOM', () => {
-          const element = document.querySelector('rh-cool-element');
+          const element = document.querySelector('pfe-cool-element');
           const elementLightDOMContent = element.textContent.trim();
           const shadowRoot = element.shadowRoot;
           const slotContent = shadowRoot.querySelector('slot').assignedNodes()[0].textContent.trim();
@@ -157,7 +157,7 @@ Here is the code:
         });
 
         test('it should allow a user to follow a profile', () => {
-          const element = document.querySelector('rh-cool-element');
+          const element = document.querySelector('pfe-cool-element');
           element.button.click();
 
           assert.isTrue(element.hasAttribute('following'));
@@ -170,7 +170,7 @@ Here is the code:
         });
 
         test('it should set the state to follow if the following attribute is present', () => {
-          const element = document.querySelector('rh-cool-element');
+          const element = document.querySelector('pfe-cool-element');
           element.setAttribute('following', '');
 
           assert.isTrue(element.hasAttribute('following'));
@@ -183,7 +183,7 @@ Here is the code:
         });
 
         test('it should set a profile pic from the photo-url attribute', () => {
-          const element = document.querySelector('rh-cool-element');
+          const element = document.querySelector('pfe-cool-element');
           const photoUrlAttribute = element.getAttribute('photo-url');
           const shadowRoot = element.shadowRoot;
           const profilePicContainer = shadowRoot.querySelector('#profile-pic');
@@ -197,9 +197,9 @@ Here is the code:
 </html>
 ```
 
-You may notice we're accessing the `shadowRoot` here, available to our element by extending `RHElement` in the definition of our element. You can also access content in the `<slot></slot>` of your element by using the `assignedNodes()` method. 
+You may notice we're accessing the `shadowRoot` here, available to our element by extending `PFElement` in the definition of our element. You can also access content in the `<slot></slot>` of your element by using the `assignedNodes()` method. 
 
-We use a slot for the username in `rh-cool-element`, making it available to us in the array returned by `assignedNodes()`.
+We use a slot for the username in `pfe-cool-element`, making it available to us in the array returned by `assignedNodes()`.
 
 ```
 shadowRoot.querySelector('slot').assignedNodes()[0].textContent.trim();
@@ -223,6 +223,6 @@ Nice! All four tests are working in Chrome and Firefox.
 
 That's it for testing, but you can also set up continuous integration on [Travis CI](https://travis-ci.org) to run tests for every push to your repository to keep track of future updates.
 
-Now that we've created our `rh-cool-element` and all of our code passes, the final step is to publish and share your component on npm!
+Now that we've created our `pfe-cool-element` and all of our code passes, the final step is to publish and share your component on npm!
 
 [Move to Step 4: Publish](../step-4)

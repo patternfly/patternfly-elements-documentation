@@ -20,26 +20,26 @@ First, we'll go ahead and listen for click events on the button. The best place 
 
 > In general, the constructor is responsible for setting the initial state, default values, event listeners, and a shadow root.
 
-Since our base RHElement that we extended already sets up a shadow root, all we'll need to do is set up an event listener.
+Since our base PFElement that we extended already sets up a shadow root, all we'll need to do is set up an event listener.
 
 ```
-import RHElement from "../rhelement/rhelement.js";
+import PFElement from "../pfelement/pfelement.js";
 
-class RhCoolElement extends RHElement {
+class PfeCoolElement extends PFElement {
   static get tag() {
-    return "rh-cool-element";
+    return "pfe-cool-element";
   }
 
   get templateUrl() {
-    return "rh-cool-element.html";
+    return "pfe-cool-element.html";
   }
 
   get styleUrl() {
-    return "rh-cool-element.scss";
+    return "pfe-cool-element.scss";
   }
 
   constructor() {
-    super(RhCoolElement.tag);
+    super(PfeCoolElement.tag);
 
     this.button = this.shadowRoot.querySelector("button");
     this.button.addEventListener("click", this._clickHandler);
@@ -50,7 +50,7 @@ class RhCoolElement extends RHElement {
   }
 }
 
-RHElement.create(RhCoolElement);
+PFElement.create(PfeCoolElement);
 ```
 
 In the constructor, we ran `querySelector` on our `shadowRoot` to locate the button and added a click listener `this._clickHandler` to capture the event.
@@ -67,7 +67,7 @@ We'll update the `constructor` like so:
 
 ```
 constructor() {
-  super('rh-cool-element', template);
+  super('pfe-cool-element', template);
 
   this.following = false;
   this._clickHandler = this._clickHandler.bind(this);
@@ -77,11 +77,11 @@ constructor() {
 }
 ```
 
-We did a couple things here. First, we set the state of `following` to false on our element and then we bound `this` to our click handler to continue using `this` to refer to our element in the `_clickHandler`.
+We did a couple things here. First, we set the state of `pfe-following` to false on our element and then we bound `this` to our click handler to continue using `this` to refer to our element in the `_clickHandler`.
 
 ## Getter, Setter, and Element State
 
-Next, we'll need to create a getter and a setter for the `following` property of our element. The setter helps us reflect the state of following to an attribute on `rh-cool-element`, and the getter provides us with the value of that attribute. 
+Next, we'll need to create a getter and a setter for the `following` property of our element. The setter helps us reflect the state of following to an attribute on `pfe-cool-element`, and the getter provides us with the value of that attribute. 
 
 Let's use `following` as an attribute:
 
@@ -90,14 +90,14 @@ set following(value) {
   const isFollowing = Boolean(value);
 
   if (isFollowing) {
-    this.setAttribute("following", "");
+    this.setAttribute("pfe-following", "");
   } else {
-    this.removeAttribute("following");
+    this.removeAttribute("pfe-following");
   }
 }
 
 get following() {
-  return this.hasAttribute("following");
+  return this.hasAttribute("pfe-following");
 }
 ```
 
@@ -130,26 +130,26 @@ static get observedAttributes() {
 ```
 attributeChangedCallback(name, oldValue, newValue) {
   switch (name) {
-    case "following":
+    case "pfe-following":
       this.button.textContent = this.following ? "Unfollow" : "Follow";
       break;
   }
 }
 ```
 
-If the changed attribute is `following`, the button text will update based on our conditional. Pretty straight-forward, right? Now our button completely reflects the state of `following` with everything wired up. 
+If the changed attribute is `pfe-following`, the button text will update based on our conditional. Pretty straight-forward, right? Now our button completely reflects the state of `pfe-following` with everything wired up. 
 
 The UI will look like this when we click the follow button:
 
 ![demo page js attribute changed step](/demo-page-js-follow-attribute-changed-step.png)
 
-Next, we add a `photo-url` attribute to pass in a profile image. Once again, we'll use the `observedAttributes` and the `attributeChangedCallback` to handle the work. We can add a profile image with only a few updates!
+Next, we add a `pfe-photo-url` attribute to pass in a profile image. Once again, we'll use the `observedAttributes` and the `attributeChangedCallback` to handle the work. We can add a profile image with only a few updates!
 
 Initially, we'll need to include a reference to `#profile-pic` in the constructor by setting `this.profilePic`.
 
 ```
 constructor() {
-  super(RhCoolElement.tag);
+  super(PfeCoolElement.tag);
 
   this.following = false;
   this._clickHandler = this._clickHandler.bind(this);
@@ -161,11 +161,11 @@ constructor() {
 }
 ```
 
-Now, we'll add the `photo-url` attribute to our `observedAttributes`:
+Now, we'll add the `pfe-photo-url` attribute to our `observedAttributes`:
 
 ```
 static get observedAttributes() {
-  return ["following", "photo-url"];
+  return ["pfe-following", "pfe-photo-url"];
 }
 ```
 
@@ -174,26 +174,26 @@ Now we can update our `attributeChangedCallback` to set the image:
 ```
 attributeChangedCallback(name, oldValue, newValue) {
   switch (name) {
-    case "following":
+    case "pfe-following":
       this.button.textContent = this.following ? "Unfollow" : "Follow";
       break;
 
-    case "photo-url":
+    case "pfe-photo-url":
       this.profilePic.style.backgroundImage = `url(${newValue})`;
       break;
   }
 }
 ```
 
-Finally, we'll need to update our demo page (`/demo/index.html`) to include the `photo-url` attribute. Pass in an image URL to see that it's working.
+Finally, we'll need to update our demo page (`/demo/index.html`) to include the `pfe-photo-url` attribute. Pass in an image URL to see that it's working.
 
 ```
-<rh-cool-element photo-url="https://avatars2.githubusercontent.com/u/330256?s=400&u=de56919e816dc9f821469c2f86174f29141a896e&v=4">
+<pfe-cool-element pfe-photo-url="https://avatars2.githubusercontent.com/u/330256?s=400&u=de56919e816dc9f821469c2f86174f29141a896e&v=4">
   Kyle Buchanan
-</rh-cool-element>
+</pfe-cool-element>
 ```
 
-We can also modify `/src/rh-cool-element.scss` to adjust the background-size property on `#profile-pic`:
+We can also modify `/src/pfe-cool-element.scss` to adjust the background-size property on `#profile-pic`:
 
 ```
 #profile-pic {
@@ -227,44 +227,44 @@ disconnectedCallback() {
 
 That's all it takes, folks! To summarize, we built a web component that extends our base element, and added some HTML, custom styles, and interactivity to our component. What's cool is that we've only scratched the surface of what's possible with custom elements.
 
-For your reference, here's the final Javascript code for `rh-cool-element`:
+For your reference, here's the final Javascript code for `pfe-cool-element`:
 
 ```
-import RHElement from "../rhelement/rhelement.js";
+import PFElement from "../pfelement/pfelement.js";
 
-class RhCoolElement extends RHElement {
+class PfeCoolElement extends PFElement {
   static get tag() {
-    return "rh-cool-element";
+    return "pfe-cool-element";
   }
 
   get templateUrl() {
-    return "rh-cool-element.html";
+    return "pfe-cool-element.html";
   }
 
   get styleUrl() {
-    return "rh-cool-element.scss";
+    return "pfe-cool-element.scss";
   }
 
   static get observedAttributes() {
-    return ["following", "photo-url"];
+    return ["pfe-following", "pfe-photo-url"];
   }
 
   set following(value) {
     const isFollowing = Boolean(value);
 
     if (isFollowing) {
-      this.setAttribute("following", "");
+      this.setAttribute("pfe-following", "");
     } else {
-      this.removeAttribute("following");
+      this.removeAttribute("pfe-following");
     }
   }
 
   get following() {
-    return this.hasAttribute("following");
+    return this.hasAttribute("pfe-following");
   }
 
   constructor() {
-    super(RhCoolElement.tag);
+    super(PfeCoolElement.tag);
 
     this.following = false;
     this._clickHandler = this._clickHandler.bind(this);
@@ -277,11 +277,11 @@ class RhCoolElement extends RHElement {
 
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
-      case "following":
+      case "pfe-following":
         this.button.textContent = this.following ? "Unfollow" : "Follow";
         break;
 
-      case "photo-url":
+      case "pfe-photo-url":
         this.profilePic.style.backgroundImage = `url(${newValue})`;
         break;
     }
@@ -296,7 +296,7 @@ class RhCoolElement extends RHElement {
   }
 }
 
-RHElement.create(RhCoolElement);
+PFElement.create(PfeCoolElement);
 ```
 
 Now that our code works, we should create tests to ensure our element works as we iterate on it in the future.

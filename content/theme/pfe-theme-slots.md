@@ -59,9 +59,9 @@ There seem to be lots of tricky gotchas related to web components, and a *lot* o
 * The reason that we are able to style links within the CTA component is because the `<a>` tag is being passed into the only unnamed slot in the CTA component. The link tag doesn’t need an explicit attribute like `slot="link"` because if a web component has one unnamed `<slot></slot>` then anything you put inside that custom component tag will be in that slot by default. 
 
 ```
-<rh-cta priority="primary">
+<pfe-cta priority="primary">
     <a href="#">Primary</a>   <!-- this element is slotted by default -->
-</rh-cta>
+</pfe-cta>
 ```
 
 * Child elements within a custom tag don’t have to be the first child to be styled, they only have to be direct descendants of the component. Meaning, once you nest something inside another tag, it can no longer receive styles targeted with the `::slotted` pseudo selector.
@@ -71,20 +71,20 @@ If we assume the component has some basic styles on all slots like this:   `::sl
 Then both the div and link tag would be styled:
 
 ```
- <rh-cta priority="primary">
+ <pfe-cta pfe-priority="primary">
    <div>styled!</div>
    <a href="#">styled!</a>
- </rh-cta>
+ </pfe-cta>
 ```
 
-However, if the link tag is nested inside the div, then it would not receive styles because it’s not a direct child of the rh-cta component.
+However, if the link tag is nested inside the div, then it would not receive styles because it’s not a direct child of the pfe-cta component.
 
 ```
- <rh-cta priority="primary">
+ <pfe-cta pfe-priority="primary">
    <div>
      <a href="#">cannot receive styles, because it’s not a direct descendant of the slot. The div is.</a>
    </div>
- </rh-cta>
+ </pfe-cta>
 ```
 
 ## Styling Slots

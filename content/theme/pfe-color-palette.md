@@ -1,5 +1,5 @@
 +++
-title = "RHElements color palette"
+title = "PatternFly Elements color palette"
 description = ""
 weight = 3
 draft = false
@@ -10,7 +10,7 @@ tags = [ "theme" ]
 +++
 
 
-Looking for values fast? You can find a <a href="https://github.com/RHElements/rhelements/blob/master/elements/rh-sass/variables/_colors.scss" target="_blank">list of all the system colors here</a>.
+Looking for values fast? You can find a <a href="https://github.com/patternfly/patternfly-elements/blob/master/elements/pfe-sass/variables/_colors.scss" target="_blank">list of all the system colors here</a>.
 
 ## UI Colors
 
@@ -26,16 +26,16 @@ We've exposed 3 color variants for this design system to represent your brand:
  - Complement
  - Accent
 
-These colors are used throughout RHElements, but **accent is the color which should stand out the most**. For example, if your brand colors are navy, orange, and medium gray, you'll want to set orange as the accent color. You'll see it appear on primary level call-to-action buttons and other elements that need to have more weight in the visual heirarchy of the page.
+These colors are used throughout PatternFly Elements, but **accent is the color which should stand out the most**. For example, if your brand colors are navy, orange, and medium gray, you'll want to set orange as the accent color. You'll see it appear on primary level call-to-action buttons and other elements that need to have more weight in the visual heirarchy of the page.
 
 If you are overriding these colors, you can do so by setting the CSS variables to have new values in the stylesheet of your page or app, like this:
 
 ```css
 :root {
-  --rh-color--ui-base:               #030070;
-  --rh-color--ui-base--hover:        #010047;
-  --rh-color--ui-base--text:         #ffffff;
-  --rh-color--ui-base--text--hover:  #eeeeee;
+  --pfe-color--ui-base:               #030070;
+  --pfe-color--ui-base--hover:        #010047;
+  --pfe-color--ui-base--text:         #ffffff;
+  --pfe-color--ui-base--text--hover:  #eeeeee;
 }
 ```
 
@@ -48,12 +48,12 @@ It's also a good idea to choose some neutral colors for general UI backgrounds a
 
 ```css
 :root {
-    --rh-color--surface--base:                      #ccc;
-    --rh-color--surface--base--text:                #000;
-    --rh-color--surface--base--link:                #00538c; 
-    --rh-color--surface--base--link--visited:       #7551a6 !default;
-    --rh-color--surface--base--link--hover:         #00305b !default;
-    --rh-color--surface--base--link--focus:         #00305b !default;
+    --pfe-color--surface--base:                      #ccc;
+    --pfe-color--surface--base--text:                #000;
+    --pfe-color--surface--base--link:                #00538c; 
+    --pfe-color--surface--base--link--visited:       #7551a6 !default;
+    --pfe-color--surface--base--link--hover:         #00305b !default;
+    --pfe-color--surface--base--link--focus:         #00305b !default;
 }
 ```
 
@@ -64,9 +64,9 @@ And finally, you’ll have colors for states such as error, warning, and success
 
 ```css
 :root {
-    --rh-color--feedback--critical:                 $rh-color--red-600 !default;
-    --rh-color--feedback--critical--lightest:       $rh-color--red-50 !default;
-    --rh-color--feedback--critical--darkest:        $rh-color--red-800 !default;
+    --pfe-color--feedback--critical:                 $pfe-color--red-600 !default;
+    --pfe-color--feedback--critical--lightest:       $pfe-color--red-50 !default;
+    --pfe-color--feedback--critical--darkest:        $pfe-color--red-800 !default;
 }
 ```
 
