@@ -9,7 +9,6 @@ menu = "develop"
 tags = [ "develop" ]
 +++
 
-
 Run the dev command found in the package.json file at the root of your element to start watching for changes to any files located in the `/src` directory. This will build pfe-cool-element.js and pfe-cool-element.umd.js whenever you save changes.
 
 ```
@@ -50,16 +49,30 @@ class PfeCoolElement extends PFElement {
     return "pfe-cool-element.scss";
   }
 
+  // static get observedAttributes() {
+  //   return [];
+  // }
+
   constructor() {
-    super(PfeCoolElement.tag);
+    super(PfeCoolElement);
   }
+
+  // connectedCallback() {
+  //   super.connectedCallback();
+  // }
+
+  // disconnectedCallback() {}
+
+  // attributeChangedCallback(attr, oldValue, newValue) {}
 }
 
-PFElement.create(pfeCoolElement);
+PFElement.create(PfeCoolElement);
+
 export default PfeCoolElement;
 ```
 
 First, notice how we're using ES6 module imports and that we import the PFElement base element.
+
 ```
 import PFElement from '../pfelement/pfelement.js';
 ```
@@ -90,7 +103,7 @@ Fourth, you'll see the constructor for the element.
 
 ```
 constructor() {
-  super(PfeCoolElement.tag);
+  super(PfeCoolElement);
 }
 ```
 
@@ -101,6 +114,8 @@ Finally, we register our element using the `create` method from the PFElement cl
 ```
 PFElement.create(PfeCoolElement);
 ```
+
+There are a couple of handy methods that have been commented out that are not as frequently used but are there for your convenience. If you're not using the connectedCallback, observedAttributes, disconnectedCallback, or attributeChangedCallback methods, you can just delete them.
 
 For questions on how Custom Elements work, or if you want to learn the basics of shadow DOM, check out Eric Bidelman's post: [Custom Elements v1: Reusable Web Components](https://developers.google.com/web/fundamentals/web-components/customelements).
 

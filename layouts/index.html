@@ -5,17 +5,17 @@
   <article id="homepage">
     <div id="hero">
       <h1>
-        <img class="hero-logo" src="/img/logo/svg/pfelements-icon-blue-shaded.svg" alt="PatternFly Elements blue logo"> 
+        <img class="hero-logo" src="/img/logo/svg/pfelements-icon-blue-shaded.svg" alt="PatternFly Elements blue logo">
         PatternFly Elements
       </h1>
       <p>{{.Description}}</p>
-      
+
       <div id="action-buttons">
-        <a class="button outline big" href="https://github.com/RHElements/" onclick="_gaq.push(['_trackEvent', 'kube', 'github']);">View on Github</a>
+        <a class="button outline big" href="https://github.com/patternfly/patternfly-elements" onclick="_gaq.push(['_trackEvent', 'kube', 'github']);">View on Github</a>
         <a class="button primary big" href="/getting-started" onclick="_gaq.push(['_trackEvent', 'kube', 'github']);">Getting Started</a>
       </div>
     </div>
-    
+
     <section id="kube-features">
       <ul class="pfe-l-grid pfe-m-gutters pfe-m-all-12-col pfe-m-all-6-col-on-sm pfe-m-all-4-col-on-md">
         <li>
@@ -41,7 +41,7 @@
         </li>
       </ul>
     </section>
-    
+
     <div id="kube-faq" style="display:none;">
     <h2 id="kube-looks-awesome-who-is-it-for">What is a web component exactly?</h2>
 
@@ -55,7 +55,7 @@
     <h2 id="kube-looks-awesome-who-is-it-for">Can I see an example?</h2>
     <p>Sure! This is a basic "custom alert" component, in which you could adjust the level of importannce to change the color from alert to warning, which might change the color from yellow to red. Inside the component, you might add some text like "Caution" or whatever you decide. You can find plenty of other web components in the wild on <a href="http://webcomponents.org">webcomponents.org</a>.</p>
 <pre>
-&lt;custom-alert importance-level=&quot;warning&quot;&gt; 
+&lt;custom-alert importance-level=&quot;warning&quot;&gt;
     &lt;p&gt;Caution!&lt;/p&gt;
 &lt;/custom-alert&gt;</pre>
 
@@ -78,6 +78,6 @@
     </div>
 
   </article>
-  
+
 {{ end }}
 {{ define "footer"}} {{ partial "footer" .}} {{end}}
