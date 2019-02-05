@@ -115,7 +115,7 @@ Finally, we register our element using the `create` method from the PFElement cl
 PFElement.create(PfeCoolElement);
 ```
 
-There are a couple of handy methods that have been commented out that are not as frequently used but are there for your convenience. If you're not using the connectedCallback, observedAttributes, disconnectedCallback, or attributeChangedCallback methods, you can just delete them.
+There are a couple of handy methods (commented out) which are not as frequently used but are there for your convenience. If you're not using the connectedCallback, observedAttributes, disconnectedCallback, or attributeChangedCallback methods, you can just delete them.
 
 For questions on how Custom Elements work, or if you want to learn the basics of shadow DOM, check out Eric Bidelman's post: [Custom Elements v1: Reusable Web Components](https://developers.google.com/web/fundamentals/web-components/customelements).
 
