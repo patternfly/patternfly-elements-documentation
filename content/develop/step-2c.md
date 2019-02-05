@@ -66,7 +66,7 @@ After saving and viewing our demo page, our profile element looks much better.
 A couple of things to note:
 
 1.  The `:host` selector sets the styles of the container element `<pfe-cool-element>`.
-2.  The `button` styles are encapsulated within this element and will not bleed out, meaning that there's no worry of this it affecting other buttons on the page. Feeling confident that your element will always look the same when it's distributed is one of the main advantages of the shadow DOM. Check out the Styling section of [Shadow DOM v1: Self-Contained Web Components](https://developers.google.com/web/fundamentals/web-components/shadowdom#styling) to learn what else you can do with styling the shadow DOM.
+2.  The `button` styles are encapsulated within this element and will not bleed out, meaning that there's no chance these styles will affect other buttons on the page. Feeling confident that your element will always look the same when it's distributed is one of the main advantages of the shadow DOM. Check out the Styling section of [Shadow DOM v1: Self-Contained Web Components](https://developers.google.com/web/fundamentals/web-components/shadowdom#styling) to learn what else you can do when applying styles to the shadow DOM.
 
 Now that our demo page is updated, let's take a look at what happened to the ES6 version of the element in the root of our element's directory.
 
