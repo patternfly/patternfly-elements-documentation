@@ -138,7 +138,7 @@ attributeChangedCallback(name, oldValue, newValue) {
 }
 ```
 
-If the changed attribute is `pfe-following`, the button text will update based on our conditional. Pretty straight-forward, right? Now our button completely reflects the state of `pfe-following` with everything wired up.
+If the changed attribute is `pfe-following`, the button text will update based on our conditional. Pretty straightforward, right? Now our button completely reflects the state of `pfe-following` with everything wired up.
 
 The UI will look like this when we click the follow button:
 
