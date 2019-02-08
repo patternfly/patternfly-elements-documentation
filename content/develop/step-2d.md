@@ -8,13 +8,12 @@ menu = "develop"
 tags = [ "develop" ]
 +++
 
-
-
 In this step, we will:
-- Add a click listener to the follow button
-- Set a follow state on element
-- Add a the profile photo
-- Properly disconnect our element
+
+1.  Add a click listener to the follow button
+2.  Set a follow state on element
+3.  Add a the profile photo
+4.  Properly disconnect our element
 
 First, we'll go ahead and listen for click events on the button. The best place to add a click listener is in the constructor, according to the W3C Custom Elements draft section called ["2.2 Requirements for custom element constructors"](https://w3c.github.io/webcomponents/spec/custom/#custom-element-conformance):
 
@@ -39,7 +38,7 @@ class PfeCoolElement extends PFElement {
   }
 
   constructor() {
-    super(PfeCoolElement.tag);
+    super(PfeCoolElement);
 
     this.button = this.shadowRoot.querySelector("button");
     this.button.addEventListener("click", this._clickHandler);
@@ -51,6 +50,8 @@ class PfeCoolElement extends PFElement {
 }
 
 PFElement.create(PfeCoolElement);
+
+export default PfeCoolElement;
 ```
 
 In the constructor, we ran `querySelector` on our `shadowRoot` to locate the button and added a click listener `this._clickHandler` to capture the event.
@@ -61,19 +62,19 @@ After saving your files, the demo page will refresh and you'll notice the start 
 
 ![demo page js click setup step](/demo-page-js-click-setup-step.png)
 
-Now that the click handler is set up, let's set a following state to keep track of whether or not you're following that user. 
+Now that the click handler is set up, let's set a following state to keep track of whether or not you're following that user.
 
 We'll update the `constructor` like so:
 
 ```
 constructor() {
-  super('pfe-cool-element', template);
+  super(PfeCoolElement);
 
   this.following = false;
   this._clickHandler = this._clickHandler.bind(this);
 
   this.button = this.shadowRoot.querySelector("button");
-  this.button.addEventListener('click', this._clickHandler);
+  this.button.addEventListener("click", this._clickHandler);
 }
 ```
 
@@ -81,7 +82,7 @@ We did a couple things here. First, we set the state of `pfe-following` to false
 
 ## Getter, Setter, and Element State
 
-Next, we'll need to create a getter and a setter for the `following` property of our element. The setter helps us reflect the state of following to an attribute on `pfe-cool-element`, and the getter provides us with the value of that attribute. 
+Next, we'll need to create a getter and a setter for the `following` property of our element. The setter helps us reflect the state of following to an attribute on `pfe-cool-element`, and the getter provides us with the value of that attribute.
 
 Let's use `following` as an attribute:
 
@@ -137,7 +138,7 @@ attributeChangedCallback(name, oldValue, newValue) {
 }
 ```
 
-If the changed attribute is `pfe-following`, the button text will update based on our conditional. Pretty straight-forward, right? Now our button completely reflects the state of `pfe-following` with everything wired up. 
+If the changed attribute is `pfe-following`, the button text will update based on our conditional. Pretty straightforward, right? Now our button completely reflects the state of `pfe-following` with everything wired up.
 
 The UI will look like this when we click the follow button:
 
@@ -149,7 +150,7 @@ Initially, we'll need to include a reference to `#profile-pic` in the constructo
 
 ```
 constructor() {
-  super(PfeCoolElement.tag);
+  super(PfeCoolElement);
 
   this.following = false;
   this._clickHandler = this._clickHandler.bind(this);
@@ -245,10 +246,6 @@ class PfeCoolElement extends PFElement {
     return "pfe-cool-element.scss";
   }
 
-  static get observedAttributes() {
-    return ["pfe-following", "pfe-photo-url"];
-  }
-
   set following(value) {
     const isFollowing = Boolean(value);
 
@@ -263,8 +260,12 @@ class PfeCoolElement extends PFElement {
     return this.hasAttribute("pfe-following");
   }
 
+  static get observedAttributes() {
+    return ["pfe-following", "pfe-photo-url"];
+  }
+
   constructor() {
-    super(PfeCoolElement.tag);
+    super(PfeCoolElement);
 
     this.following = false;
     this._clickHandler = this._clickHandler.bind(this);
@@ -297,6 +298,8 @@ class PfeCoolElement extends PFElement {
 }
 
 PFElement.create(PfeCoolElement);
+
+export default PfeCoolElement;
 ```
 
 Now that our code works, we should create tests to ensure our element works as we iterate on it in the future.

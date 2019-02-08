@@ -1,6 +1,6 @@
-<!-- 
+<!--
   Show main nav items on smaller screens and instead of combining those in a hamburger menu,
-  combine the TOC 
+  combine the TOC
 -->
 <div class="show-sm" id="top-sm">
   <div id="nav-toggle-box">
@@ -26,13 +26,13 @@
       {{end}}
     </ul>
   </nav>
-  <nav id="top-nav-extra"> 
+  <nav id="top-nav-extra">
     <ul>
-      {{ range .Site.Menus.extra }} 
+      {{ range .Site.Menus.extra }}
         <li>
           <a href="{{ .URL }}">{{ .Name }}</a>
         </li>
-      {{ end }}  
+      {{ end }}
     </ul>
   </nav>
 </div>
@@ -40,8 +40,8 @@
 <!-- Convert to a partial -->
 <nav id="mobile-toc" class="hide">
   <section class="inner-toc">
-    <span class="label big" style="margin-bottom: 1.5rem;">Version 0.5</span>
-    
+    <span class="label big" style="margin-bottom: 1.5rem;">Version 1.0.0-prerelease.8</span>
+
     <h3><a href="/getting-started">Getting Started</a></h3>
     <ul>
       {{ range where .Site.RegularPages "Params.menu" "start" }}
@@ -72,7 +72,7 @@
         </li>
       {{ end }}
     </ul>
-    
+
     <h3>Site Info</h3>
     <ul>
       {{ range where .Site.RegularPages "Params.menu" "info" }}
@@ -83,15 +83,15 @@
         </li>
       {{ end }}
     </ul>
-    
+
     <!-- I don't think these are necessary in the main TOC -->
     <!-- <h3>Contact</h3>
     <ul>
-      {{ range .Site.Menus.extra }} 
+      {{ range .Site.Menus.extra }}
         <li>
           <a href="{{ .URL }}">{{ .Name }}</a>
         </li>
-      {{ end }}  
+      {{ end }}
     </ul> -->
   </section>
 </nav>
